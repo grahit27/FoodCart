@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
 
 export const Title = () => {
+  const isOnline = useOnline();
   return (
-    <div className="flex items-center">
+    <div className="flex items-center text-center">
       <a href="/">
         <img
           className="w-20"
@@ -12,6 +14,11 @@ export const Title = () => {
         />
       </a>
       <h1 className="px-5 text-3xl font-bold"> Food App </h1>
+      {isOnline === true ? (
+        <h1 className="font-semibold text-green-400">You are Online</h1>
+      ) : (
+        <h1 className="font-semibold text-red-400">Connection Lost</h1>
+      )}
     </div>
   );
 };
