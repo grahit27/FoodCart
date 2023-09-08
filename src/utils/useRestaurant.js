@@ -20,9 +20,10 @@ const useRestaurant = () => {
         resId
     );
     const json = await data.json();
-    const extResDetails = await json.data?.cards[0].card.card.info;
-    const extResMenu = await json.data?.cards[2].groupedCard.cardGroupMap
-      .REGULAR.cards[1].card.card.itemCards;
+    const extResDetails = json.data?.cards[0].card.card.info;
+    const extResMenu =
+      json.data?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card
+        .itemCards;
     console.log(extResDetails);
     setResDetails(extResDetails);
     setResMenu(extResMenu);
