@@ -10,7 +10,13 @@ import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { LoadShimmer } from "./components/Shimmer";
 
-const About2 = lazy(() => import("./components/About"));
+// Lazy Import
+// const About2 = lazy(() => import("./components/About"));
+const About = React.lazy(() =>
+  import("./components/About").then((module) => ({
+    default: module.About,
+  }))
+);
 
 const AppLayout = () => {
   return (
@@ -32,7 +38,7 @@ const appRouter = createBrowserRouter([
         path: "/about",
         element: (
           <Suspense fallback={<LoadShimmer />}>
-            <About2 />
+            <About />
           </Suspense>
         ),
       },
