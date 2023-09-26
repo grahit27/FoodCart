@@ -21,21 +21,24 @@ const Body = () => {
     <ResCardShimmer />
   ) : (
     <>
-      <div className="px-5 py-2 flex justify-evenly">
-        <h2 className="text-lg font-sans font-semibold">
+      {/* <div className="px-5 py-2 flex justify-evenly"> */}
+      <div className="px-5 py-2 grid grid-cols-4 gap-4">
+        <h2 className="text-lg font-sans font-semibold w-full">
           {" "}
           Search for Restaurants and Food{" "}
         </h2>
-        <input
-          className="p-1 border-2"
-          type="text"
-          value={searchText}
-          onChange={(e) => {
-            setSearchText(e.target.value); // Render page on change.
-          }}
-        />
+        <div className="p-2 ring-1 ring-gray-200 hover:ring-gray-400 rounded-lg w-full">
+          <input
+            className="px-2 w-full outline-0"
+            type="text"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value); // Render page on change.
+            }}
+          />
+        </div>
         <button
-          className="p-1 font-semibold bg-violet-300 hover:bg-violet-500 rounded-md "
+          className="p-1 w-[170px] h-10 font-semibold bg-violet-200 hover:bg-violet-400 rounded-md "
           onClick={() => {
             const data = searchResults(searchText, resC);
             setSearchRes(data);

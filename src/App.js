@@ -4,17 +4,24 @@ import Header, { Title } from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-// import { About, About2 } from "./components/About";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { LoadShimmer } from "./components/Shimmer";
+// import { About, About2 } from "./components/About"; Replaced with Lazy Loading
 
-// Lazy Import
+// Lazy Import with Default Import
 // const About2 = lazy(() => import("./components/About"));
+
+//Lazy import with Named Import
 const About = React.lazy(() =>
   import("./components/About").then((module) => ({
     default: module.About,
+  }))
+);
+const About2 = React.lazy(() =>
+  import("./components/About").then((module) => ({
+    default: module.About2,
   }))
 );
 
@@ -39,6 +46,14 @@ const appRouter = createBrowserRouter([
         element: (
           <Suspense fallback={<LoadShimmer />}>
             <About />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/about2",
+        element: (
+          <Suspense fallback={<LoadShimmer />}>
+            <About2 />
           </Suspense>
         ),
       },

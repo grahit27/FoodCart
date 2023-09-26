@@ -3,6 +3,8 @@ import { state, setState } from "react";
 import { useState } from "react";
 import Profile from "./Profile";
 import { sampleData } from "../utils/mockData";
+import UserContext from "../utils/UserContext";
+
 const Section = ({
   sectionHeading,
   sectionText,
@@ -40,7 +42,7 @@ const Section = ({
 };
 export const About = () => {
   const [sectionConfig, setSectionConfig] = useState("Section-1"); //Mistake Exists in clearing of the accordian
-  const setVisibilityConfig = (section) => setSectionConfig(section);
+  const setVisibilityConfig = (section) => setSectionConfig(section); // Created a function to change the visibility config and passed to child compnent
   return (
     <>
       <div className="about-page">
@@ -57,14 +59,12 @@ export const About = () => {
           sectionHeading="Section-2"
           sectionText={sampleData}
           visibility={sectionConfig === "Section-2"}
-          // setIsVisible={() => setSectionConfig("Section-2")}
           setVisibility={setVisibilityConfig}
         />
         <Section
           sectionHeading="Section-3"
           sectionText={sampleData}
           visibility={sectionConfig === "Section-3"}
-          // setIsVisible={() => setSectionConfig("Section-3")}
           setVisibility={setVisibilityConfig}
         />
       </div>
@@ -73,8 +73,9 @@ export const About = () => {
 };
 
 export class About2 extends React.Component {
+  //Class based Component Practice
   constructor(props) {
-    super(props);
+    super(props); //Essential Part Can't removed
     this.state = {
       count: 1,
       timerSwitch: false,
@@ -105,6 +106,13 @@ export class About2 extends React.Component {
       <>
         <div className="p-5">
           <h1>About Us Page from Class Based Component</h1>
+          <UserContext.Consumer>
+            {({ user }) => {
+              <h1 className="from-teal-500 font-bold">
+                From Static Context{user.name}
+              </h1>;
+            }}
+          </UserContext.Consumer>
           <button
             className="bg-purple-400 rounded-md p-2 my-2"
             onClick={() => {
