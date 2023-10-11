@@ -2,9 +2,15 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IMG_SRC_URL } from "../config";
 import { LoadShimmer } from "./Shimmer";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 import useRestaurant, { getResDetails } from "../utils/useRestaurant";
 const RestaurantMenu = () => {
   const { resDetails, resMenu } = useRestaurant();
+  // Redux Dispatch
+  const dispatch = useDispatch();
+  const handelAddItem = (item) => dispatch(addItem(item));
+
   return !resMenu ? (
     <LoadShimmer />
   ) : (
@@ -26,7 +32,17 @@ const RestaurantMenu = () => {
         <h1 className="py-2 text-2xl font-semibold ">Menu Items</h1>
         <ul className="py-1 font-medium text-xl">
           {resMenu.map((item) => (
-            <li key={item.card.info.id}>{item.card.info.name}</li>
+            <>
+              <li className="my-2" key={item.card.info.id}>
+                {item.card.info.name}-{" "}
+                <button
+                  className="p-2 bg-purple-800 rounded-md text-white"
+                  onClick={() => handelAddItem(item.card.info.name)}
+                >
+                  Add Item
+                </button>
+              </li>
+            </>
           ))}
         </ul>
       </div>

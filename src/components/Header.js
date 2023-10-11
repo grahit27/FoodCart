@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 
 export const Title = () => {
   const isOnline = useOnline();
@@ -29,6 +30,7 @@ export const Title = () => {
 };
 const Header = () => {
   const [login, setLogin] = useState(false);
+  const cartItems = useSelector((store) => store.cart.items);
   return (
     <div className="px-5 py-2 flex items-center justify-between">
       <Title />
@@ -44,6 +46,9 @@ const Header = () => {
         </Link>
         <Link to="/contact">
           <li>Contact</li>
+        </Link>
+        <Link to="/cart">
+          <li>Cart - {cartItems.length} items</li>
         </Link>
         {login ? (
           <button

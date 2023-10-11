@@ -24,7 +24,7 @@ const useRestaurant = () => {
     const extResMenu =
       json.data?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card
         .itemCards;
-    console.log(extResDetails);
+    // console.log(extResDetails);
     setResDetails(extResDetails);
     setResMenu(extResMenu);
   };

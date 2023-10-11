@@ -8,6 +8,8 @@ import Error from "./components/Error";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { LoadShimmer } from "./components/Shimmer";
+import { Provider } from "react-redux";
+import store from "./utils/store";
 // import { About, About2 } from "./components/About"; Replaced with Lazy Loading
 
 // Lazy Import with Default Import
@@ -28,9 +30,11 @@ const About2 = React.lazy(() =>
 const AppLayout = () => {
   return (
     <>
-      <Header />
-      <Outlet />
-      <Footer />
+      <Provider store={store}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </Provider>
     </>
   );
 };
