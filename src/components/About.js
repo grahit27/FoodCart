@@ -41,8 +41,8 @@ const Section = ({
   );
 };
 export const About = () => {
-  const [sectionConfig, setSectionConfig] = useState("Section-1"); //Mistake Exists in clearing of the accordian
-  const setVisibilityConfig = (section) => setSectionConfig(section); // Created a function to change the visibility config and passed to child compnent
+  const [sectionConfig, setSectionConfig] = useState("Section-1");
+  const setVisibilityConfig = (section) => setSectionConfig(section); // Created a function to change the visibility config and passed to child component
   return (
     <>
       <div className="about-page">
