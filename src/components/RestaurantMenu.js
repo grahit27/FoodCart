@@ -14,7 +14,7 @@ const RestaurantMenu = () => {
   return !resMenu ? (
     <LoadShimmer />
   ) : (
-    <div className="res-menu">
+    <div>
       <h2 className="py-5 text-3xl font-semibold text-center bg-slate-100">
         Restaurant Menu
       </h2>
@@ -32,17 +32,15 @@ const RestaurantMenu = () => {
         <h1 className="py-2 text-2xl font-semibold ">Menu Items</h1>
         <ul className="py-1 font-medium text-xl">
           {resMenu.map((item) => (
-            <>
-              <li className="my-2" key={item.card.info.id}>
-                {item.card.info.name}-{" "}
-                <button
-                  className="p-2 bg-purple-800 rounded-md text-white"
-                  onClick={() => handelAddItem(item.card.info.name)}
-                >
-                  Add Item
-                </button>
-              </li>
-            </>
+            <li className="my-2" key={item.card.info.id}>
+              {item.card.info.name}-{" "}
+              <button
+                className="p-2 bg-purple-800 rounded-md text-white"
+                onClick={() => handelAddItem(item)}
+              >
+                Add Item
+              </button>
+            </li>
           ))}
         </ul>
       </div>

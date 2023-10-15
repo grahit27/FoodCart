@@ -13,7 +13,7 @@ const RestaurantCard = ({
         className="w-[200px] h-[200px] rounded-2xl"
         src={IMG_SRC_URL + cloudinaryImageId}
       />
-      <div className="p-2 ">
+      <div className="p-2">
         <h2 className="font-bold text-lg truncate">{name}</h2>
         <h3 className="text-sm font-semibold truncate">
           {cuisines.join(", ")}
