@@ -7,9 +7,11 @@ package.json
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
+eslint.config.js
 
 # Dependency directories
 node_modules/
 .parcel-cache/
+coverage/
 # Distribution directories
 dist/

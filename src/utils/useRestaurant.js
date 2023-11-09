@@ -21,10 +21,10 @@ const useRestaurant = () => {
     );
     const json = await data.json();
     const extResDetails = json.data?.cards[0].card.card.info;
+    // Below data works for certain restaurants. As data formating is different.
     const extResMenu =
       json.data?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card
         .itemCards;
-    // console.log(extResDetails);
     setResDetails(extResDetails);
     setResMenu(extResMenu);
   };

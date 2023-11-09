@@ -13,7 +13,7 @@ const LoadResCard = () => {
 export const ResCardShimmer = () => {
   return (
     <>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap" data-testid="shimmer">
         {[1, 2, 3, 4, 5].map((index) => {
           return <LoadResCard key={index} />;
         })}
