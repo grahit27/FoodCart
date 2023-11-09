@@ -5,8 +5,10 @@ const FoodItemCard = ({ name, imageId, category, price, isBestseller }) => {
       <img
         className="w-[200px] h-[200px] rounded-2xl"
         src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
           imageId
+            ? "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+              imageId
+            : "https://static.vecteezy.com/system/resources/thumbnails/005/513/590/small/catering-quality-food-design-premium-logo-vector.jpg"
         }
       />
       <h1 className="text-2xl font-bold">{name}</h1>

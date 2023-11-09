@@ -5,23 +5,21 @@ import { Link } from "react-router-dom";
 import { ResCardShimmer } from "./Shimmer";
 import { searchResults } from "../utils/helper";
 import { getAllRestaurants } from "../utils/restaurantHelper";
-import { mockGetResData } from "../utils/mockData";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [searchRes, setSearchRes] = useState([]);
   const { resC } = getAllRestaurants();
-  // const { resC } = mockGetResData();
+  // Get the Restaurant Data and set it as Search State's initial value
   useEffect(() => {
     setSearchRes(resC);
   }, [resC]);
-  console.log("render", resC); // Learn about rendering works
+  console.log("render", resC); // Learn about how rendering works
 
   return !resC || resC.length === 0 ? (
     <ResCardShimmer />
   ) : (
     <>
-      {/* <div className="px-5 py-2 flex justify-evenly"> */}
       <div className="px-5 py-2 grid grid-cols-4 gap-4">
         <h2 className="text-lg font-sans font-semibold w-full">
           {" "}
@@ -38,6 +36,7 @@ const Body = () => {
           />
         </div>
         <button
+          data-testid="search-button"
           className="p-1 w-[170px] h-10 font-semibold bg-violet-200 hover:bg-violet-400 rounded-md "
           onClick={() => {
             const data = searchResults(searchText, resC);
@@ -47,11 +46,12 @@ const Body = () => {
           Search
         </button>
       </div>
-
-      <div className="flex flex-wrap">
-        {searchRes.length === 0 ? (
+      {/* RestaurantCard details */}
+      <div className="flex flex-wrap" data-testid="resDetails">
+        {!searchRes || searchRes.length === 0 ? (
           <h2 className="not-found">No Restaurants found</h2>
         ) : (
+          // Initally searchRes contains all restaurant data.
           searchRes.map((restaurant) => {
             return (
               <Link
