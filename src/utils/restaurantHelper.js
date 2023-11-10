@@ -8,6 +8,7 @@ export const getAllRestaurants = () => {
   const urlParms = new createSearchParams(query);
   const lat = urlParms.get("lat");
   const lng = urlParms.get("lng");
+  const test = "a";
 
   useEffect(() => {
     setLocation({ lat: lat, lng: lng });
