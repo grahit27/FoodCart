@@ -14,4 +14,3 @@ node_modules/
 .parcel-cache/
 coverage/
 # Distribution directories
-dist/
