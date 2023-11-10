@@ -28,11 +28,11 @@ export const Title = () => {
       <h1 className="px-5 text-3xl font-bold"> Food App </h1>
       {isOnline === true ? (
         <h1 className="font-semibold text-green-400">
-          You are Online{" "}
+          You are Online{"  "}
           <span className="font-bold text-green-600">{user.name}</span>
         </h1>
       ) : (
-        <h1 className="font-semibold text-red-400">Connection Lost</h1>
+        <h1 className="font-semibold text-red-400">Connection Lost </h1>
       )}
       {/* City List */}
       <DropDown name="City List" items={cityDropItems} />
