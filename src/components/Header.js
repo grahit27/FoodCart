@@ -35,7 +35,8 @@ export const Title = () => {
         <h1 className="font-semibold text-red-400">Connection Lost</h1>
       )}
       {/* City List */}
-      <DropDown name="City List" items={cityDropItems} />
+      <DropDown className="px-2" name="City List" items={cityDropItems} />
+      <span className="px-2"> Enable CORS Extension to see results </span>
     </div>
   );
 };
@@ -51,9 +52,6 @@ const Header = () => {
         </Link>
         <Link to="/about">
           <li>About</li>
-        </Link>
-        <Link to="/about2">
-          <li>{`About (Class Based)`}</li>
         </Link>
         <Link to="/contact">
           <li>Contact</li>
