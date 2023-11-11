@@ -55,14 +55,6 @@ const appRouter = createBrowserRouter([
         ),
       },
       {
-        path: "/about2",
-        element: (
-          <Suspense fallback={<LoadShimmer />}>
-            <About2 />
-          </Suspense>
-        ),
-      },
-      {
         path: "/contact",
         element: <Contact />,
       },

@@ -1,9 +1,6 @@
 import React from "react";
-import { state, setState } from "react";
 import { useState } from "react";
-import Profile from "./Profile";
 import { sampleData } from "../utils/mockData";
-import UserContext from "../utils/UserContext";
 
 const Section = ({
   sectionHeading,
@@ -71,87 +68,3 @@ export const About = () => {
     </>
   );
 };
-
-export class About2 extends React.Component {
-  //Class based Component Practice
-  constructor(props) {
-    super(props); //Essential Part Can't removed
-    this.state = {
-      count: 1,
-      timerSwitch: false,
-    };
-  }
-  componentDidMount() {}
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.count !== prevState.count) {
-      console.log("State changed");
-    }
-    if (this.state.timerSwitch !== prevState.timerSwitch) {
-      if (this.state.timerSwitch) {
-        this.timer = setInterval(() => {
-          console.log("Timer 1");
-        }, "1000");
-      }
-      if (!this.state.timerSwitch) {
-        clearInterval(this.timer);
-      }
-    }
-  }
-  componentWillUnmount() {
-    clearInterval(this.timer);
-  }
-  render() {
-    const { count, timerSwitch } = this.state;
-    return (
-      <>
-        <div className="p-5">
-          <h1>About Us Page from Class Based Component</h1>
-          <UserContext.Consumer>
-            {({ user }) => {
-              <h1 className="from-teal-500 font-bold">
-                From Static Context{user.name}
-              </h1>;
-            }}
-          </UserContext.Consumer>
-          <button
-            className="bg-purple-400 rounded-md p-2 my-2"
-            onClick={() => {
-              this.setState({
-                count: count + 1,
-              });
-            }}
-          >
-            Increase Count
-          </button>
-          <h1 className="text-xl font-semibold">Final Value of {count}</h1>
-
-          {/* Timer Button */}
-          {timerSwitch ? (
-            <button
-              className="bg-red-400 rounded-xl m-2 p-2"
-              onClick={() => {
-                this.setState({
-                  timerSwitch: false,
-                });
-              }}
-            >
-              Switch Off Timer
-            </button>
-          ) : (
-            <button
-              className="bg-green-400 rounded-xl m-2 p-2"
-              onClick={() => {
-                this.setState({
-                  timerSwitch: true,
-                });
-              }}
-            >
-              Switch On Timer
-            </button>
-          )}
-          <Profile name="Tester Name" />
-        </div>
-      </>
-    );
-  }
-}
