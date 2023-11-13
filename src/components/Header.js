@@ -35,6 +35,7 @@ export const Title = () => {
         <h1 className="font-semibold text-red-400">Connection Lost </h1>
       )}
       {/* City List */}
+      <span className="p-2">"Inside SampleDev"</span>
       <DropDown name="City List" items={cityDropItems} />
     </div>
   );

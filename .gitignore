@@ -13,4 +13,6 @@ eslint.config.js
 node_modules/
 .parcel-cache/
 coverage/
+dist/
+
 # Distribution directories
