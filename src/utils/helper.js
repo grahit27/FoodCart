@@ -22,7 +22,7 @@ export const cityList = [
 export const locationDropDown = (list) => {
   return list.map((item) => ({
     itemName: item.name,
-    itemHREF: `/?lat=${item.location.lat}&lng=${item.location.lng}`,
+    itemHREF: `/?city=${item.name}&lat=${item.location.lat}&lng=${item.location.lng}`,
   }));
 };
 

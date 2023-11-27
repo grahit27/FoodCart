@@ -5,14 +5,13 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 const MenuItem = ({ itemName, itemHREF }) => {
-  console.log(itemName, itemHREF);
   return (
     <Menu.Item>
       {({ active }) => (
         <a
           href={itemHREF}
           className={classNames(
-            active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+            active ? "bg-gray-100 text-gray-900 font-bold" : "text-gray-900",
             "block px-4 py-2 text-sm"
           )}
         >
@@ -27,7 +26,7 @@ const DropDown = ({ name, items }) => {
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-          {name}
+          <span className="capitalize">{name}</span>
           <ChevronDownIcon
             className="-mr-1 h-5 w-5 text-gray-400"
             aria-hidden="true"

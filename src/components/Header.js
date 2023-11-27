@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
-import UserContext from "../utils/UserContext";
+import { UserContext, LocationContext } from "../utils/UserContext";
 // import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useSelector } from "react-redux";
 import DropDown from "./uiComponents/Dropdown";
@@ -11,8 +11,8 @@ import { locationDropDown } from "../utils/helper";
 export const Title = () => {
   const isOnline = useOnline();
   const { user } = useContext(UserContext);
+  const { location } = useContext(LocationContext);
   const cityDropItems = locationDropDown(cityList);
-
   return (
     <div className="flex items-center text-center">
       {/* Logo */}
@@ -35,8 +35,8 @@ export const Title = () => {
         <h1 className="font-semibold text-red-400">Connection Lost</h1>
       )}
       {/* City List */}
-      <span className="p-2">"Inside SampleDev"</span>
-      <DropDown name="City List" items={cityDropItems} />
+      <span className="p-2 text-violet-600">Branch SampleDev</span>
+      <DropDown name={location.city} items={cityDropItems} />
     </div>
   );
 };
