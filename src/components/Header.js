@@ -43,6 +43,7 @@ export const Title = () => {
 };
 const Header = () => {
   const [login, setLogin] = useState(false);
+  const { location } = useContext(LocationContext);
   const cartItems = useSelector((store) => store.cart.items);
   return (
     <div className="flex flex-col">
@@ -53,7 +54,9 @@ const Header = () => {
       <div className="px-5 py-2 flex items-center justify-between">
         <Title />
         <ul className="text-lg flex items-center gap-x-5">
-          <Link to={`/?lat=${28.6550458}&lng=${77.1888201}`}>
+          <Link
+            to={`/?city=${location.city}&lat=${location.lat}&lng=${location.lng}`}
+          >
             <li>Home</li>
           </Link>
           <Link to="/about">
