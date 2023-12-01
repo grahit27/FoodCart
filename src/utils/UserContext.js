@@ -10,9 +10,15 @@ export const UserContext = createContext({
 });
 
 export const LocationContext = createContext({
-  location: {
-    city: urlParms.get("city"),
-    lat: urlParms.get("lat"),
-    lng: urlParms.get("lng"),
-  },
+  location: !urlParms.get("city")
+    ? {
+        city: "delhi",
+        lat: 28.6550458,
+        lng: 77.1888201,
+      }
+    : {
+        city: urlParms.get("city"),
+        lat: urlParms.get("lat"),
+        lng: urlParms.get("lng"),
+      },
 });
