@@ -22,19 +22,25 @@ const About = React.lazy(() =>
     default: module.About,
   }))
 );
-const About2 = React.lazy(() =>
-  import("./components/About").then((module) => ({
-    default: module.About2,
-  }))
-);
+// const About2 = React.lazy(() =>
+//   import("./components/About").then((module) => ({
+//     default: module.About2,
+//   }))
+// );
+import { About2 } from "./components/About";
 
 const AppLayout = () => {
   return (
     <>
       <Provider store={store}>
-        <Header />
-        <Outlet />
-        <Footer />
+        <div className="flex flex-col h-screen">
+          <Header />
+          <div className="mb-auto">
+            <Outlet />
+          </div>
+
+          <Footer />
+        </div>
       </Provider>
     </>
   );

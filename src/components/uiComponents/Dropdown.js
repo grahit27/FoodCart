@@ -5,14 +5,13 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 const MenuItem = ({ itemName, itemHREF }) => {
-  console.log(itemName, itemHREF);
   return (
     <Menu.Item>
       {({ active }) => (
         <a
           href={itemHREF}
           className={classNames(
-            active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+            active ? "bg-gray-100 text-gray-900 font-bold" : "text-gray-900",
             "block px-4 py-2 text-sm"
           )}
         >

@@ -10,7 +10,7 @@ const Cart = () => {
   return !cartItems ? (
     <LoadShimmer />
   ) : (
-    <div className="p-2 m-2">
+    <div className="p-2">
       <h1 className="justify-center flex text-4xl">Cart Items</h1>
 
       <div className="flex flex-wrap">

@@ -42,29 +42,25 @@ export const About = () => {
   const setVisibilityConfig = (section) => setSectionConfig(section); // Created a function to change the visibility config and passed to child component
   return (
     <>
-      <div className="about-page">
-        <h1 className="p-2 bg-orange-400 text-center text-3xl">
-          About Us Page
-        </h1>
-        <Section
-          sectionHeading="Section-1"
-          sectionText={sampleData}
-          visibility={sectionConfig === "Section-1"}
-          setVisibility={setVisibilityConfig} // We are sending a function to set the state
-        />
-        <Section
-          sectionHeading="Section-2"
-          sectionText={sampleData}
-          visibility={sectionConfig === "Section-2"}
-          setVisibility={setVisibilityConfig}
-        />
-        <Section
-          sectionHeading="Section-3"
-          sectionText={sampleData}
-          visibility={sectionConfig === "Section-3"}
-          setVisibility={setVisibilityConfig}
-        />
-      </div>
+      <h1 className="p-2 bg-orange-400 text-center text-3xl">About Us Page</h1>
+      <Section
+        sectionHeading="Section-1"
+        sectionText={sampleData}
+        visibility={sectionConfig === "Section-1"}
+        setVisibility={setVisibilityConfig} // We are sending a function to set the state
+      />
+      <Section
+        sectionHeading="Section-2"
+        sectionText={sampleData}
+        visibility={sectionConfig === "Section-2"}
+        setVisibility={setVisibilityConfig}
+      />
+      <Section
+        sectionHeading="Section-3"
+        sectionText={sampleData}
+        visibility={sectionConfig === "Section-3"}
+        setVisibility={setVisibilityConfig}
+      />
     </>
   );
 };

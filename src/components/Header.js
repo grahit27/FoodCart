@@ -13,9 +13,8 @@ export const Title = () => {
   const { user } = useContext(UserContext);
   const { location } = useContext(LocationContext);
   const cityDropItems = locationDropDown(cityList);
-
   return (
-    <div className="flex items-center text-center">
+    <div className="flex gap-x-2 items-center">
       {/* Logo */}
       <a href="/">
         <img
@@ -26,7 +25,7 @@ export const Title = () => {
         />
       </a>
       {/* Online Status */}
-      <h1 className="px-2 text-3xl font-bold"> Food App </h1>
+      <h1 className="text-3xl font-bold"> Food App </h1>
       {isOnline === true ? (
         <h1 className="font-semibold text-green-400">
           You are Online{" "}
@@ -35,9 +34,11 @@ export const Title = () => {
       ) : (
         <h1 className="font-semibold text-red-400">Connection Lost</h1>
       )}
+
       {/* City List */}
-      <span className="font-bold px-2 ">Select City</span>
-      <DropDown className="px-2" name={location.city} items={cityDropItems} />
+      <span className=" text-violet-600">Master Branch</span>
+      <span>Select City</span>
+      <DropDown name={location.city} items={cityDropItems} />
     </div>
   );
 };
@@ -50,8 +51,7 @@ const Header = () => {
       <span className="text-center font-bold bg-purple-500">
         Enable CORS Extension to fetch Results
       </span>
-
-      <div className="px-5 py-2 flex items-center justify-between">
+      <div className="p-2 items-center flex justify-between">
         <Title />
         <ul className="text-lg flex items-center gap-x-5">
           <Link
@@ -62,6 +62,7 @@ const Header = () => {
           <Link to="/about">
             <li>About</li>
           </Link>
+
           <Link to="/contact">
             <li>Contact</li>
           </Link>
@@ -71,6 +72,7 @@ const Header = () => {
           {login ? (
             <button
               data-testid="logout-button"
+              className="p-2 w-20 rounded-md bg-red-300"
               onClick={() => {
                 setLogin(false);
               }}
@@ -80,6 +82,7 @@ const Header = () => {
           ) : (
             <button
               data-testid="login-button"
+              className="p-2 w-20 rounded-md bg-green-300"
               onClick={() => {
                 setLogin(true);
               }}
