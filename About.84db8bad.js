@@ -605,10 +605,17 @@ try {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.About = void 0;
+exports.About2 = exports.About = void 0;
 var _react = _interopRequireWildcard(require("bbc6d23085232c2d"));
+var _Profile = _interopRequireDefault(require("6caab5f42b77f65e"));
 var _mockData = require("17e619cd7ef8273d");
+var _UserContext = _interopRequireDefault(require("3c5e6c67159bf856"));
 var _jsxRuntime = require("9aff5c9ea7aa2f6c");
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
 function _getRequireWildcardCache(e) {
     if ("function" != typeof WeakMap) return null;
     var r = new WeakMap(), t = new WeakMap();
@@ -700,6 +707,90 @@ const About = ()=>{
 };
 _c1 = About;
 exports.About = About;
+class About2 extends _react.default.Component {
+    //Class based Component Practice
+    constructor(props){
+        super(props); //Essential Part Can't removed
+        this.state = {
+            count: 1,
+            timerSwitch: false
+        };
+    }
+    componentDidMount() {}
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.count !== prevState.count) console.log("State changed");
+        if (this.state.timerSwitch !== prevState.timerSwitch) {
+            if (this.state.timerSwitch) this.timer = setInterval(()=>{
+                console.log("Timer 1");
+            }, "1000");
+            if (!this.state.timerSwitch) clearInterval(this.timer);
+        }
+    }
+    componentWillUnmount() {
+        clearInterval(this.timer);
+    }
+    render() {
+        const { count, timerSwitch } = this.state;
+        return /*#__PURE__*/ (0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
+            children: /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                className: "p-5",
+                children: [
+                    /*#__PURE__*/ (0, _jsxRuntime.jsx)("h1", {
+                        children: "About Us Page from Class Based Component"
+                    }),
+                    /*#__PURE__*/ (0, _jsxRuntime.jsx)(_UserContext.default.Consumer, {
+                        children: ({ user })=>{
+                            /*#__PURE__*/ (0, _jsxRuntime.jsxs)("h1", {
+                                className: "from-teal-500 font-bold",
+                                children: [
+                                    "From Static Context",
+                                    user.name
+                                ]
+                            });
+                        }
+                    }),
+                    /*#__PURE__*/ (0, _jsxRuntime.jsx)("button", {
+                        className: "bg-purple-400 rounded-md p-2 my-2",
+                        onClick: ()=>{
+                            this.setState({
+                                count: count + 1
+                            });
+                        },
+                        children: "Increase Count"
+                    }),
+                    /*#__PURE__*/ (0, _jsxRuntime.jsxs)("h1", {
+                        className: "text-xl font-semibold",
+                        children: [
+                            "Final Value of ",
+                            count
+                        ]
+                    }),
+                    timerSwitch ? /*#__PURE__*/ (0, _jsxRuntime.jsx)("button", {
+                        className: "bg-red-400 rounded-xl m-2 p-2",
+                        onClick: ()=>{
+                            this.setState({
+                                timerSwitch: false
+                            });
+                        },
+                        children: "Switch Off Timer"
+                    }) : /*#__PURE__*/ (0, _jsxRuntime.jsx)("button", {
+                        className: "bg-green-400 rounded-xl m-2 p-2",
+                        onClick: ()=>{
+                            this.setState({
+                                timerSwitch: true
+                            });
+                        },
+                        children: "Switch On Timer"
+                    }),
+                    /*#__PURE__*/ (0, _jsxRuntime.jsx)(_Profile.default, {
+                        name: "Tester Name"
+                    })
+                ]
+            })
+        });
+    }
+}
+exports.About2 = About2;
 var _c, _c1;
 $RefreshReg$(_c, "Section");
 $RefreshReg$(_c1, "About");
@@ -709,7 +800,7 @@ $RefreshReg$(_c1, "About");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","bbc6d23085232c2d":"21dqq","17e619cd7ef8273d":"iOpE9","9aff5c9ea7aa2f6c":"6AEwr"}],"iOpE9":[function(require,module,exports) {
+},{"@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","bbc6d23085232c2d":"21dqq","17e619cd7ef8273d":"iOpE9","9aff5c9ea7aa2f6c":"6AEwr","6caab5f42b77f65e":"h0rtF","3c5e6c67159bf856":"c5vgB"}],"iOpE9":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$b553 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -1627,6 +1718,52 @@ const sampleData = exports.sampleData = "There are many variations of passages o
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"8dd09592340241f3":"21dqq","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["3EtMM","1xC6H"], null, "parcelRequireaff4")
+},{"8dd09592340241f3":"21dqq","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"h0rtF":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$b52a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$b52a.prelude(module);
+
+try {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = void 0;
+var _react = _interopRequireDefault(require("ca75da1d2ded6327"));
+var _jsxRuntime = require("78f4d6916d89a6e0");
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+class Profile extends _react.default.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            name: this.props.name
+        };
+    }
+    componentWillUnmount() {
+    // console.log("Parent unmount");
+    }
+    render() {
+        const { name } = this.state;
+        return /*#__PURE__*/ (0, _jsxRuntime.jsxs)("h2", {
+            children: [
+                "Profile Part with name = ",
+                name
+            ]
+        });
+    }
+}
+var _default = exports.default = Profile;
+
+  $parcel$ReactRefreshHelpers$b52a.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"ca75da1d2ded6327":"21dqq","78f4d6916d89a6e0":"6AEwr","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["3EtMM","1xC6H"], null, "parcelRequireaff4")
 
 //# sourceMappingURL=About.84db8bad.js.map
