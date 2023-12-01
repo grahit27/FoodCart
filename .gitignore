@@ -12,7 +12,7 @@ eslint.config.js
 # Dependency directories
 node_modules/
 .parcel-cache/
-coverage/
 dist/
-
+coverage/
+.DS_Store
 # Distribution directories

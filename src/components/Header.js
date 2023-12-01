@@ -34,9 +34,9 @@ export const Title = () => {
       ) : (
         <h1 className="font-semibold text-red-400">Connection Lost</h1>
       )}
+
       {/* City List */}
-      <span className=" text-violet-600">Branch SampleDev</span>
-      <DropDown name={location.city} items={cityDropItems} />
+      <DropDown name="City List" items={cityDropItems} />
     </div>
   );
 };
@@ -45,16 +45,17 @@ const Header = () => {
   const { location } = useContext(LocationContext);
   const cartItems = useSelector((store) => store.cart.items);
   return (
-    <div className="p-2 items-center flex justify-between">
+    <div className="px-5 py-2 flex items-center justify-between">
       <Title />
       <ul className="text-lg flex items-center gap-x-5">
-        <Link
-          to={`/?city=${location.city}&lat=${location.lat}&lng=${location.lng}`}
-        >
+        <Link to={`/?lat=${28.6550458}&lng=${77.1888201}`}>
           <li>Home</li>
         </Link>
         <Link to="/about">
           <li>About</li>
+        </Link>
+        <Link to="/about2">
+          <li>{`About (Class Based)`}</li>
         </Link>
         <Link to="/contact">
           <li>Contact</li>
@@ -65,7 +66,6 @@ const Header = () => {
         {login ? (
           <button
             data-testid="logout-button"
-            className="p-2 w-20 rounded-md bg-red-300"
             onClick={() => {
               setLogin(false);
             }}
@@ -75,7 +75,6 @@ const Header = () => {
         ) : (
           <button
             data-testid="login-button"
-            className="p-2 w-20 rounded-md bg-green-300"
             onClick={() => {
               setLogin(true);
             }}
