@@ -26618,15 +26618,8 @@ const Title = ()=>{
                 className: "font-semibold text-red-400",
                 children: "Connection Lost"
             }),
-            /*#__PURE__*/ (0, _jsxRuntime.jsx)("span", {
-                className: " text-violet-600",
-                children: "Master Branch"
-            }),
-            /*#__PURE__*/ (0, _jsxRuntime.jsx)("span", {
-                children: "Select City"
-            }),
             /*#__PURE__*/ (0, _jsxRuntime.jsx)(_Dropdown.default, {
-                name: location.city,
+                name: "City List",
                 items: cityDropItems
             })
         ]
@@ -26639,63 +26632,52 @@ const Header = ()=>{
     const { location } = (0, _react.useContext)(_UserContext.LocationContext);
     const cartItems = (0, _reactRedux.useSelector)((store)=>store.cart.items);
     return /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
-        className: "flex flex-col",
+        className: "px-5 py-2 flex items-center justify-between",
         children: [
-            /*#__PURE__*/ (0, _jsxRuntime.jsx)("span", {
-                className: "text-center font-bold bg-purple-500",
-                children: "Enable CORS Extension to fetch Results"
-            }),
-            /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
-                className: "p-2 items-center flex justify-between",
+            /*#__PURE__*/ (0, _jsxRuntime.jsx)(Title, {}),
+            /*#__PURE__*/ (0, _jsxRuntime.jsxs)("ul", {
+                className: "text-lg flex items-center gap-x-5",
                 children: [
-                    /*#__PURE__*/ (0, _jsxRuntime.jsx)(Title, {}),
-                    /*#__PURE__*/ (0, _jsxRuntime.jsxs)("ul", {
-                        className: "text-lg flex items-center gap-x-5",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
-                                to: `/?city=${location.city}&lat=${location.lat}&lng=${location.lng}`,
-                                children: /*#__PURE__*/ (0, _jsxRuntime.jsx)("li", {
-                                    children: "Home"
-                                })
-                            }),
-                            /*#__PURE__*/ (0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
-                                to: "/about",
-                                children: /*#__PURE__*/ (0, _jsxRuntime.jsx)("li", {
-                                    children: "About"
-                                })
-                            }),
-                            /*#__PURE__*/ (0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
-                                to: "/contact",
-                                children: /*#__PURE__*/ (0, _jsxRuntime.jsx)("li", {
-                                    children: "Contact"
-                                })
-                            }),
-                            /*#__PURE__*/ (0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
-                                to: "/cart",
-                                children: /*#__PURE__*/ (0, _jsxRuntime.jsxs)("li", {
-                                    children: [
-                                        "Cart - ",
-                                        cartItems.length,
-                                        " items"
-                                    ]
-                                })
-                            }),
-                            login ? /*#__PURE__*/ (0, _jsxRuntime.jsx)("button", {
-                                "data-testid": "logout-button",
-                                className: "p-2 w-20 rounded-md bg-red-300",
-                                onClick: ()=>{
-                                    setLogin(false);
-                                },
-                                children: "Logout"
-                            }) : /*#__PURE__*/ (0, _jsxRuntime.jsx)("button", {
-                                "data-testid": "login-button",
-                                className: "p-2 w-20 rounded-md bg-green-300",
-                                onClick: ()=>{
-                                    setLogin(true);
-                                },
-                                children: "Login"
-                            })
-                        ]
+                    /*#__PURE__*/ (0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
+                        to: `/?lat=${28.6550458}&lng=${77.1888201}`,
+                        children: /*#__PURE__*/ (0, _jsxRuntime.jsx)("li", {
+                            children: "Home"
+                        })
+                    }),
+                    /*#__PURE__*/ (0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
+                        to: "/about",
+                        children: /*#__PURE__*/ (0, _jsxRuntime.jsx)("li", {
+                            children: "About"
+                        })
+                    }),
+                    /*#__PURE__*/ (0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
+                        to: "/contact",
+                        children: /*#__PURE__*/ (0, _jsxRuntime.jsx)("li", {
+                            children: "Contact"
+                        })
+                    }),
+                    /*#__PURE__*/ (0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
+                        to: "/cart",
+                        children: /*#__PURE__*/ (0, _jsxRuntime.jsxs)("li", {
+                            children: [
+                                "Cart - ",
+                                cartItems.length,
+                                " items"
+                            ]
+                        })
+                    }),
+                    login ? /*#__PURE__*/ (0, _jsxRuntime.jsx)("button", {
+                        "data-testid": "logout-button",
+                        onClick: ()=>{
+                            setLogin(false);
+                        },
+                        children: "Logout"
+                    }) : /*#__PURE__*/ (0, _jsxRuntime.jsx)("button", {
+                        "data-testid": "login-button",
+                        onClick: ()=>{
+                            setLogin(true);
+                        },
+                        children: "Login"
                     })
                 ]
             })
@@ -54858,7 +54840,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.About = void 0;
 var _react = _interopRequireWildcard(require("bbc6d23085232c2d"));
-var _mockData = require("17e619cd7ef8273d");
 var _jsxRuntime = require("9aff5c9ea7aa2f6c");
 function _getRequireWildcardCache(e) {
     if ("function" != typeof WeakMap) return null;
@@ -54883,998 +54864,162 @@ function _interopRequireWildcard(e, r) {
     }
     return n.default = e, t && t.set(e, n), n;
 }
-const Section = ({ sectionHeading, sectionText, visibility, setVisibility })=>{
-    // const [visibility, setVisibility] = useState(false); //First build logic with State Variables then replace it with parent state vars
-    return /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
-        className: "p-2 m-2 border-2 rounded-md border-purple-400  ",
-        children: [
-            /*#__PURE__*/ (0, _jsxRuntime.jsx)("h1", {
-                className: "font-semibold text-xl",
-                children: sectionHeading
-            }),
-            visibility ? /*#__PURE__*/ (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
-                children: [
-                    /*#__PURE__*/ (0, _jsxRuntime.jsx)("button", {
-                        className: "p-1 underline-offset-1 rounded-md bg-purple-700 text-white",
-                        onClick: ()=>{
-                            setVisibility(null); //Remove Everything from section config
-                        },
-                        children: "Hide"
-                    }),
-                    /*#__PURE__*/ (0, _jsxRuntime.jsx)("p", {
-                        children: sectionText
-                    })
-                ]
-            }) : /*#__PURE__*/ (0, _jsxRuntime.jsx)("button", {
-                className: "p-1 underline-offset-1 rounded-md bg-purple-700 text-white",
-                onClick: ()=>{
-                    setVisibility(sectionHeading); //Change the section config
-                },
-                children: "Show"
-            })
-        ]
-    });
-};
-_c = Section;
 const About = ()=>{
     const [sectionConfig, setSectionConfig] = (0, _react.useState)("Section-1");
     const setVisibilityConfig = (section)=>setSectionConfig(section); // Created a function to change the visibility config and passed to child component
     return /*#__PURE__*/ (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
         children: [
-            /*#__PURE__*/ (0, _jsxRuntime.jsx)("h1", {
-                className: "p-2 bg-orange-400 text-center text-3xl",
-                children: "About Us Page"
+            /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
+                className: "p-2 bg-red-400 flex justify-around",
+                children: /*#__PURE__*/ (0, _jsxRuntime.jsx)("span", {
+                    className: "text-2xl",
+                    children: "Mocked About Us Page From Swiggy Website"
+                })
             }),
-            /*#__PURE__*/ (0, _jsxRuntime.jsx)(Section, {
-                sectionHeading: "Section-1",
-                sectionText: _mockData.sampleData,
-                visibility: sectionConfig === "Section-1",
-                setVisibility: setVisibilityConfig // We are sending a function to set the state
+            /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                className: "p-12 bg-orange-500 flex flex-col justify-around",
+                children: [
+                    /*#__PURE__*/ (0, _jsxRuntime.jsx)("img", {
+                        src: "https://careers.swiggy.com/assets/img/inverted-commas.png",
+                        className: "w-[128px] h-[128x]"
+                    }),
+                    /*#__PURE__*/ (0, _jsxRuntime.jsx)("span", {
+                        className: "text-white text-[30px]",
+                        children: "Our mission is to elevate the quality of life for the urban consumer with unparalleled convenience. Convenience is what makes us tick. It's what makes us get out of bed and say, \"Let's do this.\""
+                    })
+                ]
             }),
-            /*#__PURE__*/ (0, _jsxRuntime.jsx)(Section, {
-                sectionHeading: "Section-2",
-                sectionText: _mockData.sampleData,
-                visibility: sectionConfig === "Section-2",
-                setVisibility: setVisibilityConfig
+            /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                className: "py-[70px] flex flex-col",
+                children: [
+                    /*#__PURE__*/ (0, _jsxRuntime.jsxs)("span", {
+                        className: "mb-[30px] text-4xl text-center",
+                        children: [
+                            "The Swiggy ",
+                            /*#__PURE__*/ (0, _jsxRuntime.jsx)("span", {
+                                className: "font-bold",
+                                children: "Journey"
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ (0, _jsxRuntime.jsx)("img", {
+                        className: "px-4",
+                        src: "https://careers.swiggy.com/assets/img/Swiggy-Journey.jpg"
+                    })
+                ]
             }),
-            /*#__PURE__*/ (0, _jsxRuntime.jsx)(Section, {
-                sectionHeading: "Section-3",
-                sectionText: _mockData.sampleData,
-                visibility: sectionConfig === "Section-3",
-                setVisibility: setVisibilityConfig
+            /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
+                className: "mx-[109.6px] px-4 py-12 ",
+                children: /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                    className: "flex flex-col text-center p-4 mx-52",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("span", {
+                            className: "mb-12 text-5xl font-bold",
+                            children: "What’s In Store For The Future?"
+                        }),
+                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("p", {
+                            className: "mb-4 text-base font-light leading-[1.61rem] ",
+                            children: "Swiggy has grand plans to be India’s most loved hyperlocal player. It aims to be the most accessible platform on the network - reimagining the meaning of convenience in the country through a variety of service offerings."
+                        })
+                    ]
+                })
+            }),
+            /*#__PURE__*/ (0, _jsxRuntime.jsx)("hr", {
+                class: "h-px my-4 bg-gray-300 border-0"
+            }),
+            /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
+                className: "py-[70px]",
+                children: /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                    className: "mx-24 py-12 px-4 grid grid-cols-6 gap-4",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                            className: "mb-12 text-5xl col-span-2 ",
+                            children: [
+                                "Changing ",
+                                /*#__PURE__*/ (0, _jsxRuntime.jsx)("br", {}),
+                                " ",
+                                /*#__PURE__*/ (0, _jsxRuntime.jsx)("span", {
+                                    className: "font-bold",
+                                    children: "the game"
+                                })
+                            ]
+                        }),
+                        /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                            className: "py-7 border-[1px] border-orange-500 rounded-md",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
+                                    className: "text-5xl font-bold text-center",
+                                    children: "150000+"
+                                }),
+                                /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
+                                    className: " text-gray-500 text-center",
+                                    children: "Restaurant Partners Countrywide"
+                                })
+                            ]
+                        }),
+                        /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                            className: "py-7 border-[1px] border-orange-500 rounded-md",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
+                                    className: "text-5xl font-bold text-center ",
+                                    children: "5000+"
+                                }),
+                                /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
+                                    className: " text-gray-500 text-center",
+                                    children: "Employees across the Country"
+                                })
+                            ]
+                        }),
+                        /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                            className: "py-7 border-[1px] border-orange-500 rounded-md",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
+                                    className: "text-5xl font-bold text-center",
+                                    children: "260000+"
+                                }),
+                                /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                                    className: " text-gray-500 text-center",
+                                    children: [
+                                        "Delivery ",
+                                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("br", {}),
+                                        " Executives"
+                                    ]
+                                })
+                            ]
+                        }),
+                        /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                            className: "py-7 border-[1px] border-orange-500 rounded-md",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
+                                    className: "text-5xl font-bold text-center",
+                                    children: "500+"
+                                }),
+                                /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                                    className: " text-gray-500 text-center",
+                                    children: [
+                                        "Cites ",
+                                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("br", {}),
+                                        " PAN India"
+                                    ]
+                                })
+                            ]
+                        })
+                    ]
+                })
             })
         ]
     });
 };
-_c1 = About;
+_c = About;
 exports.About = About;
-var _c, _c1;
-$RefreshReg$(_c, "Section");
-$RefreshReg$(_c1, "About");
+var _c;
+$RefreshReg$(_c, "About");
 
   $parcel$ReactRefreshHelpers$5b98.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","bbc6d23085232c2d":"21dqq","17e619cd7ef8273d":"iOpE9","9aff5c9ea7aa2f6c":"6AEwr"}],"iOpE9":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$b553 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$b553.prelude(module);
-
-try {
-"use strict";
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.sampleData = exports.mockGetResData = void 0;
-var _react = require("8dd09592340241f3");
-const mockGetResData = ()=>{
-    const [resC, setResC] = (0, _react.useState)([]);
-    (0, _react.useEffect)(()=>{
-        mockGet();
-    }, []);
-    const mockGet = ()=>{
-        const data = [
-            {
-                info: {
-                    id: "48087",
-                    name: "Kanti Sweets",
-                    cloudinaryImageId: "ee62qkzydm4eacoo2kub",
-                    locality: "CMH Road",
-                    areaName: "Indira Nagar",
-                    costForTwo: "₹150 for two",
-                    cuisines: [
-                        "Sweets"
-                    ],
-                    avgRating: 4.6,
-                    veg: true,
-                    feeDetails: {
-                        restaurantId: "48087",
-                        fees: [
-                            {
-                                name: "BASE_DISTANCE",
-                                fee: 3300
-                            },
-                            {
-                                name: "BASE_TIME"
-                            },
-                            {
-                                name: "ANCILLARY_SURGE_FEE"
-                            }
-                        ],
-                        totalFee: 3300
-                    },
-                    parentId: "4700",
-                    avgRatingString: "4.6",
-                    totalRatingsString: "5K+",
-                    sla: {
-                        deliveryTime: 22,
-                        lastMileTravel: 0.8,
-                        serviceability: "SERVICEABLE",
-                        slaString: "22 mins",
-                        lastMileTravelString: "0.8 km",
-                        iconType: "ICON_TYPE_EMPTY"
-                    },
-                    availability: {
-                        nextCloseTime: "2023-09-04 22:00:00",
-                        opened: true
-                    },
-                    badges: {},
-                    isOpen: true,
-                    type: "F",
-                    badgesV2: {
-                        entityBadges: {
-                            imageBased: {},
-                            textBased: {},
-                            textExtendedBadges: {}
-                        }
-                    },
-                    aggregatedDiscountInfoV3: {
-                        discountCalloutInfo: {
-                            message: "Free Delivery",
-                            logoCtx: {
-                                logo: "v1655895371/free_delivery_logo_hqipbo.png"
-                            }
-                        }
-                    },
-                    orderabilityCommunication: {
-                        title: {},
-                        subTitle: {},
-                        message: {},
-                        customIcon: {}
-                    },
-                    differentiatedUi: {
-                        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                        differentiatedUiMediaDetails: {
-                            mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                            lottie: {},
-                            video: {}
-                        }
-                    },
-                    reviewsSummary: {},
-                    displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                    restaurantOfferPresentationInfo: {}
-                },
-                analytics: {
-                    context: "seo-data-d46ad577-7279-477c-af7f-721ede287580"
-                },
-                cta: {
-                    link: "https://www.swiggy.com/restaurants/kanti-sweets-cmh-road-indira-nagar-bangalore-48087",
-                    text: "RESTAURANT_MENU",
-                    type: "WEBLINK"
-                },
-                widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
-            },
-            {
-                info: {
-                    id: "752385",
-                    name: "Great Indian Khichdi by EatFit",
-                    cloudinaryImageId: "d00bd9d092e31d8e4355960b6d92046b",
-                    locality: "Hoysala Nagar",
-                    areaName: "Indira Nagar",
-                    costForTwo: "₹200 for two",
-                    cuisines: [
-                        "Indian",
-                        "Home Food",
-                        "Healthy Food",
-                        "Snacks"
-                    ],
-                    avgRating: 4.2,
-                    veg: true,
-                    feeDetails: {
-                        restaurantId: "752385",
-                        fees: [
-                            {
-                                name: "BASE_DISTANCE",
-                                fee: 2800
-                            },
-                            {
-                                name: "BASE_TIME"
-                            },
-                            {
-                                name: "ANCILLARY_SURGE_FEE"
-                            }
-                        ],
-                        totalFee: 2800
-                    },
-                    parentId: "319582",
-                    avgRatingString: "4.2",
-                    totalRatingsString: "2",
-                    sla: {
-                        deliveryTime: 44,
-                        lastMileTravel: 0.8,
-                        serviceability: "SERVICEABLE",
-                        slaString: "44 mins",
-                        lastMileTravelString: "0.8 km",
-                        iconType: "ICON_TYPE_EMPTY"
-                    },
-                    availability: {
-                        nextCloseTime: "2023-09-04 23:00:00",
-                        opened: true
-                    },
-                    badges: {},
-                    isOpen: true,
-                    type: "F",
-                    badgesV2: {
-                        entityBadges: {
-                            imageBased: {},
-                            textBased: {},
-                            textExtendedBadges: {}
-                        }
-                    },
-                    aggregatedDiscountInfoV3: {
-                        header: "60% OFF",
-                        subHeader: "UPTO ₹120",
-                        discountCalloutInfo: {
-                            message: "Free Delivery",
-                            logoCtx: {
-                                logo: "v1655895371/free_delivery_logo_hqipbo.png"
-                            }
-                        }
-                    },
-                    orderabilityCommunication: {
-                        title: {},
-                        subTitle: {},
-                        message: {},
-                        customIcon: {}
-                    },
-                    differentiatedUi: {
-                        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                        differentiatedUiMediaDetails: {
-                            mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                            lottie: {},
-                            video: {}
-                        }
-                    },
-                    reviewsSummary: {},
-                    displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                    restaurantOfferPresentationInfo: {}
-                },
-                analytics: {
-                    context: "seo-data-d46ad577-7279-477c-af7f-721ede287580"
-                },
-                cta: {
-                    link: "https://www.swiggy.com/restaurants/great-indian-khichdi-by-eatfit-hoysala-nagar-indira-nagar-bangalore-752385",
-                    text: "RESTAURANT_MENU",
-                    type: "WEBLINK"
-                },
-                widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
-            },
-            {
-                info: {
-                    id: "131114",
-                    name: "Andhra Gunpowder",
-                    cloudinaryImageId: "xnpuvvqfcxfttpwgvq6p",
-                    locality: "Jeevan Bhima Nagar",
-                    areaName: "Indiranagar",
-                    costForTwo: "₹350 for two",
-                    cuisines: [
-                        "Andhra",
-                        "Biryani",
-                        "South Indian"
-                    ],
-                    avgRating: 4.3,
-                    feeDetails: {
-                        restaurantId: "131114",
-                        fees: [
-                            {
-                                name: "BASE_DISTANCE",
-                                fee: 2800
-                            },
-                            {
-                                name: "BASE_TIME"
-                            },
-                            {
-                                name: "ANCILLARY_SURGE_FEE"
-                            }
-                        ],
-                        totalFee: 2800
-                    },
-                    parentId: "10496",
-                    avgRatingString: "4.3",
-                    totalRatingsString: "10K+",
-                    sla: {
-                        deliveryTime: 23,
-                        lastMileTravel: 2,
-                        serviceability: "SERVICEABLE",
-                        slaString: "23 mins",
-                        lastMileTravelString: "2.0 km",
-                        iconType: "ICON_TYPE_EMPTY"
-                    },
-                    availability: {
-                        nextCloseTime: "2023-09-05 01:00:00",
-                        opened: true
-                    },
-                    badges: {
-                        textExtendedBadges: [
-                            {
-                                iconId: "guiltfree/GF_Logo_android_3x",
-                                shortDescription: "options available",
-                                fontColor: "#7E808C"
-                            }
-                        ]
-                    },
-                    isOpen: true,
-                    type: "F",
-                    badgesV2: {
-                        entityBadges: {
-                            imageBased: {},
-                            textBased: {},
-                            textExtendedBadges: {
-                                badgeObject: [
-                                    {
-                                        attributes: {
-                                            description: "",
-                                            fontColor: "#7E808C",
-                                            iconId: "guiltfree/GF_Logo_android_3x",
-                                            shortDescription: "options available"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    aggregatedDiscountInfoV3: {
-                        header: "₹100 OFF",
-                        subHeader: "ABOVE ₹299",
-                        discountTag: "FLAT DEAL",
-                        discountCalloutInfo: {
-                            message: "Free Delivery",
-                            logoCtx: {
-                                logo: "v1655895371/free_delivery_logo_hqipbo.png"
-                            }
-                        }
-                    },
-                    orderabilityCommunication: {
-                        title: {},
-                        subTitle: {},
-                        message: {},
-                        customIcon: {}
-                    },
-                    differentiatedUi: {
-                        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                        differentiatedUiMediaDetails: {
-                            mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                            lottie: {},
-                            video: {}
-                        }
-                    },
-                    reviewsSummary: {},
-                    displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                    restaurantOfferPresentationInfo: {}
-                },
-                analytics: {
-                    context: "seo-data-d46ad577-7279-477c-af7f-721ede287580"
-                },
-                cta: {
-                    link: "https://www.swiggy.com/restaurants/andhra-gunpowder-jeevan-bhima-nagar-indiranagar-bangalore-131114",
-                    text: "RESTAURANT_MENU",
-                    type: "WEBLINK"
-                },
-                widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
-            },
-            {
-                info: {
-                    id: "271",
-                    name: "Meghana Foods",
-                    cloudinaryImageId: "sotxv0gury7f7vrfvb2r",
-                    locality: "Indiranagar",
-                    areaName: "Indiranagar",
-                    costForTwo: "₹500 for two",
-                    cuisines: [
-                        "Biryani",
-                        "Andhra",
-                        "South Indian",
-                        "North Indian",
-                        "Chinese",
-                        "Seafood"
-                    ],
-                    avgRating: 4.4,
-                    feeDetails: {
-                        restaurantId: "271",
-                        fees: [
-                            {
-                                name: "BASE_DISTANCE",
-                                fee: 3300
-                            },
-                            {
-                                name: "BASE_TIME"
-                            },
-                            {
-                                name: "ANCILLARY_SURGE_FEE"
-                            }
-                        ],
-                        totalFee: 3300
-                    },
-                    parentId: "635",
-                    avgRatingString: "4.4",
-                    totalRatingsString: "10K+",
-                    sla: {
-                        deliveryTime: 33,
-                        lastMileTravel: 0.6,
-                        serviceability: "SERVICEABLE",
-                        slaString: "33 mins",
-                        lastMileTravelString: "0.6 km",
-                        iconType: "ICON_TYPE_EMPTY"
-                    },
-                    availability: {
-                        nextCloseTime: "2023-09-05 01:30:00",
-                        opened: true
-                    },
-                    badges: {},
-                    isOpen: true,
-                    type: "F",
-                    badgesV2: {
-                        entityBadges: {
-                            imageBased: {},
-                            textBased: {},
-                            textExtendedBadges: {}
-                        }
-                    },
-                    aggregatedDiscountInfoV3: {
-                        discountCalloutInfo: {
-                            message: "Free Delivery",
-                            logoCtx: {
-                                logo: "v1655895371/free_delivery_logo_hqipbo.png"
-                            }
-                        }
-                    },
-                    orderabilityCommunication: {
-                        title: {},
-                        subTitle: {},
-                        message: {},
-                        customIcon: {}
-                    },
-                    differentiatedUi: {
-                        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                        differentiatedUiMediaDetails: {
-                            mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                            lottie: {},
-                            video: {}
-                        }
-                    },
-                    reviewsSummary: {},
-                    displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                    restaurantOfferPresentationInfo: {}
-                },
-                analytics: {
-                    context: "seo-data-d46ad577-7279-477c-af7f-721ede287580"
-                },
-                cta: {
-                    link: "https://www.swiggy.com/restaurants/meghana-foods-indiranagar-bangalore-271",
-                    text: "RESTAURANT_MENU",
-                    type: "WEBLINK"
-                },
-                widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
-            },
-            {
-                info: {
-                    id: "10584",
-                    name: "Pizza Hut",
-                    cloudinaryImageId: "2b4f62d606d1b2bfba9ba9e5386fabb7",
-                    locality: "Indiranagar",
-                    areaName: "Indiranagar",
-                    costForTwo: "₹300 for two",
-                    cuisines: [
-                        "Pizzas"
-                    ],
-                    avgRating: 3.6,
-                    feeDetails: {
-                        restaurantId: "10584",
-                        fees: [
-                            {
-                                name: "BASE_DISTANCE",
-                                fee: 2800
-                            },
-                            {
-                                name: "BASE_TIME"
-                            },
-                            {
-                                name: "ANCILLARY_SURGE_FEE"
-                            }
-                        ],
-                        totalFee: 2800
-                    },
-                    parentId: "721",
-                    avgRatingString: "3.6",
-                    totalRatingsString: "10K+",
-                    sla: {
-                        deliveryTime: 59,
-                        serviceability: "SERVICEABLE",
-                        slaString: "59 mins",
-                        iconType: "ICON_TYPE_EMPTY"
-                    },
-                    availability: {
-                        nextCloseTime: "2023-09-05 04:00:00",
-                        opened: true
-                    },
-                    badges: {},
-                    isOpen: true,
-                    aggregatedDiscountInfoV2: {},
-                    type: "F",
-                    badgesV2: {
-                        entityBadges: {
-                            imageBased: {},
-                            textBased: {},
-                            textExtendedBadges: {}
-                        }
-                    },
-                    orderabilityCommunication: {
-                        title: {},
-                        subTitle: {},
-                        message: {},
-                        customIcon: {}
-                    },
-                    differentiatedUi: {
-                        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                        differentiatedUiMediaDetails: {
-                            mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                            lottie: {},
-                            video: {}
-                        }
-                    },
-                    reviewsSummary: {},
-                    displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                    restaurantOfferPresentationInfo: {}
-                },
-                analytics: {
-                    context: "seo-data-d46ad577-7279-477c-af7f-721ede287580"
-                },
-                cta: {
-                    link: "https://www.swiggy.com/restaurants/pizza-hut-indiranagar-bangalore-10584",
-                    text: "RESTAURANT_MENU",
-                    type: "WEBLINK"
-                },
-                widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
-            },
-            {
-                info: {
-                    id: "23681",
-                    name: "McDonald's",
-                    cloudinaryImageId: "ee5f8e06b300efc07c9fe3f4df40dfc4",
-                    locality: "Cmh Road",
-                    areaName: "Indiranagar",
-                    costForTwo: "₹400 for two",
-                    cuisines: [
-                        "Burgers",
-                        "Beverages",
-                        "Cafe",
-                        "Desserts"
-                    ],
-                    avgRating: 4.4,
-                    feeDetails: {
-                        restaurantId: "23681",
-                        fees: [
-                            {
-                                name: "BASE_DISTANCE",
-                                fee: 2800
-                            },
-                            {
-                                name: "BASE_TIME"
-                            },
-                            {
-                                name: "ANCILLARY_SURGE_FEE"
-                            }
-                        ],
-                        totalFee: 2800
-                    },
-                    parentId: "630",
-                    avgRatingString: "4.4",
-                    totalRatingsString: "10K+",
-                    sla: {
-                        deliveryTime: 33,
-                        lastMileTravel: 0.6,
-                        serviceability: "SERVICEABLE",
-                        slaString: "33 mins",
-                        lastMileTravelString: "0.6 km",
-                        iconType: "ICON_TYPE_EMPTY"
-                    },
-                    availability: {
-                        nextCloseTime: "2023-09-05 02:45:00",
-                        opened: true
-                    },
-                    badges: {
-                        textExtendedBadges: [
-                            {
-                                iconId: "guiltfree/GF_Logo_android_3x",
-                                shortDescription: "options available",
-                                fontColor: "#7E808C"
-                            }
-                        ]
-                    },
-                    isOpen: true,
-                    type: "F",
-                    badgesV2: {
-                        entityBadges: {
-                            imageBased: {},
-                            textBased: {},
-                            textExtendedBadges: {
-                                badgeObject: [
-                                    {
-                                        attributes: {
-                                            description: "",
-                                            fontColor: "#7E808C",
-                                            iconId: "guiltfree/GF_Logo_android_3x",
-                                            shortDescription: "options available"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    aggregatedDiscountInfoV3: {
-                        header: "10% OFF",
-                        subHeader: "ABOVE ₹999",
-                        discountTag: "FLAT DEAL",
-                        discountCalloutInfo: {
-                            message: "Free Delivery",
-                            logoCtx: {
-                                logo: "v1655895371/free_delivery_logo_hqipbo.png"
-                            }
-                        }
-                    },
-                    orderabilityCommunication: {
-                        title: {},
-                        subTitle: {},
-                        message: {},
-                        customIcon: {}
-                    },
-                    differentiatedUi: {
-                        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                        differentiatedUiMediaDetails: {
-                            mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                            lottie: {},
-                            video: {}
-                        }
-                    },
-                    reviewsSummary: {},
-                    displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                    restaurantOfferPresentationInfo: {}
-                },
-                analytics: {
-                    context: "seo-data-d46ad577-7279-477c-af7f-721ede287580"
-                },
-                cta: {
-                    link: "https://www.swiggy.com/restaurants/mcdonalds-cmh-road-indiranagar-bangalore-23681",
-                    text: "RESTAURANT_MENU",
-                    type: "WEBLINK"
-                },
-                widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
-            },
-            {
-                info: {
-                    id: "15898",
-                    name: "Mani's Dum Biryani",
-                    cloudinaryImageId: "lufqwcvjqllfw24ab82x",
-                    locality: "Jeevan Bhima Nagar",
-                    areaName: "Jeevan Bhima Nagar",
-                    costForTwo: "₹400 for two",
-                    cuisines: [
-                        "Biryani"
-                    ],
-                    avgRating: 4.4,
-                    feeDetails: {
-                        restaurantId: "15898",
-                        fees: [
-                            {
-                                name: "BASE_DISTANCE",
-                                fee: 2800
-                            },
-                            {
-                                name: "BASE_TIME"
-                            },
-                            {
-                                name: "ANCILLARY_SURGE_FEE"
-                            }
-                        ],
-                        totalFee: 2800
-                    },
-                    parentId: "623",
-                    avgRatingString: "4.4",
-                    totalRatingsString: "10K+",
-                    sla: {
-                        deliveryTime: 20,
-                        lastMileTravel: 1.7,
-                        serviceability: "SERVICEABLE",
-                        slaString: "20 mins",
-                        lastMileTravelString: "1.7 km",
-                        iconType: "ICON_TYPE_EMPTY"
-                    },
-                    availability: {
-                        nextCloseTime: "2023-09-04 23:45:00",
-                        opened: true
-                    },
-                    badges: {},
-                    isOpen: true,
-                    type: "F",
-                    badgesV2: {
-                        entityBadges: {
-                            imageBased: {},
-                            textBased: {},
-                            textExtendedBadges: {}
-                        }
-                    },
-                    aggregatedDiscountInfoV3: {
-                        discountCalloutInfo: {
-                            message: "Free Delivery",
-                            logoCtx: {
-                                logo: "v1655895371/free_delivery_logo_hqipbo.png"
-                            }
-                        }
-                    },
-                    orderabilityCommunication: {
-                        title: {},
-                        subTitle: {},
-                        message: {},
-                        customIcon: {}
-                    },
-                    differentiatedUi: {
-                        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                        differentiatedUiMediaDetails: {
-                            mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                            lottie: {},
-                            video: {}
-                        }
-                    },
-                    reviewsSummary: {},
-                    displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                    restaurantOfferPresentationInfo: {}
-                },
-                analytics: {
-                    context: "seo-data-d46ad577-7279-477c-af7f-721ede287580"
-                },
-                cta: {
-                    link: "https://www.swiggy.com/restaurants/manis-dum-biryani-jeevan-bhima-nagar-bangalore-15898",
-                    text: "RESTAURANT_MENU",
-                    type: "WEBLINK"
-                },
-                widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
-            },
-            {
-                info: {
-                    id: "410684",
-                    name: "Soul Rasa",
-                    cloudinaryImageId: "vt9jevkq2ddvjodkuhq3",
-                    locality: "Murugeshpalya",
-                    areaName: "Indiranagar",
-                    costForTwo: "₹400 for two",
-                    cuisines: [
-                        "Indian",
-                        "Healthy Food",
-                        "Home Food",
-                        "South Indian",
-                        "North Indian"
-                    ],
-                    avgRating: 4.4,
-                    feeDetails: {
-                        restaurantId: "410684",
-                        fees: [
-                            {
-                                name: "BASE_DISTANCE",
-                                fee: 3800
-                            },
-                            {
-                                name: "BASE_TIME"
-                            },
-                            {
-                                name: "ANCILLARY_SURGE_FEE"
-                            }
-                        ],
-                        totalFee: 3800
-                    },
-                    parentId: "239281",
-                    avgRatingString: "4.4",
-                    totalRatingsString: "1K+",
-                    sla: {
-                        deliveryTime: 27,
-                        lastMileTravel: 3.9,
-                        serviceability: "SERVICEABLE",
-                        slaString: "27 mins",
-                        lastMileTravelString: "3.9 km",
-                        iconType: "ICON_TYPE_EMPTY"
-                    },
-                    availability: {
-                        nextCloseTime: "2023-09-04 23:30:00",
-                        opened: true
-                    },
-                    badges: {
-                        textExtendedBadges: [
-                            {
-                                iconId: "guiltfree/GF_Logo_android_3x",
-                                shortDescription: "brand",
-                                fontColor: "#7E808C"
-                            }
-                        ]
-                    },
-                    isOpen: true,
-                    type: "F",
-                    badgesV2: {
-                        entityBadges: {
-                            imageBased: {},
-                            textBased: {},
-                            textExtendedBadges: {
-                                badgeObject: [
-                                    {
-                                        attributes: {
-                                            description: "",
-                                            fontColor: "#7E808C",
-                                            iconId: "guiltfree/GF_Logo_android_3x",
-                                            shortDescription: "brand"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    aggregatedDiscountInfoV3: {
-                        header: "60% OFF",
-                        subHeader: "UPTO ₹100",
-                        discountCalloutInfo: {
-                            message: "Free Delivery",
-                            logoCtx: {
-                                logo: "v1655895371/free_delivery_logo_hqipbo.png"
-                            }
-                        }
-                    },
-                    orderabilityCommunication: {
-                        title: {},
-                        subTitle: {},
-                        message: {},
-                        customIcon: {}
-                    },
-                    differentiatedUi: {
-                        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                        differentiatedUiMediaDetails: {
-                            mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                            lottie: {},
-                            video: {}
-                        }
-                    },
-                    reviewsSummary: {},
-                    displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                    restaurantOfferPresentationInfo: {}
-                },
-                analytics: {
-                    context: "seo-data-d46ad577-7279-477c-af7f-721ede287580"
-                },
-                cta: {
-                    link: "https://www.swiggy.com/restaurants/soul-rasa-murugeshpalya-indiranagar-bangalore-410684",
-                    text: "RESTAURANT_MENU",
-                    type: "WEBLINK"
-                },
-                widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
-            },
-            {
-                info: {
-                    id: "457308",
-                    name: "Bakingo",
-                    cloudinaryImageId: "zf2wklnad7kyvgk98thl",
-                    locality: "New Thipasandra",
-                    areaName: "Indiranagar",
-                    costForTwo: "₹300 for two",
-                    cuisines: [
-                        "Bakery",
-                        "Desserts",
-                        "Beverages",
-                        "Snacks"
-                    ],
-                    avgRating: 4.3,
-                    feeDetails: {
-                        restaurantId: "457308",
-                        fees: [
-                            {
-                                name: "BASE_DISTANCE",
-                                fee: 2800
-                            },
-                            {
-                                name: "BASE_TIME"
-                            },
-                            {
-                                name: "ANCILLARY_SURGE_FEE"
-                            }
-                        ],
-                        totalFee: 2800
-                    },
-                    parentId: "3818",
-                    avgRatingString: "4.3",
-                    totalRatingsString: "1K+",
-                    sla: {
-                        deliveryTime: 28,
-                        lastMileTravel: 1.8,
-                        serviceability: "SERVICEABLE",
-                        slaString: "28 mins",
-                        lastMileTravelString: "1.8 km",
-                        iconType: "ICON_TYPE_EMPTY"
-                    },
-                    availability: {
-                        nextCloseTime: "2023-09-05 01:00:00",
-                        opened: true
-                    },
-                    badges: {},
-                    isOpen: true,
-                    type: "F",
-                    badgesV2: {
-                        entityBadges: {
-                            imageBased: {},
-                            textBased: {},
-                            textExtendedBadges: {}
-                        }
-                    },
-                    aggregatedDiscountInfoV3: {
-                        discountCalloutInfo: {
-                            message: "Free Delivery",
-                            logoCtx: {
-                                logo: "v1655895371/free_delivery_logo_hqipbo.png"
-                            }
-                        }
-                    },
-                    orderabilityCommunication: {
-                        title: {},
-                        subTitle: {},
-                        message: {},
-                        customIcon: {}
-                    },
-                    differentiatedUi: {
-                        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                        differentiatedUiMediaDetails: {
-                            mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                            lottie: {},
-                            video: {}
-                        }
-                    },
-                    reviewsSummary: {},
-                    displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                    restaurantOfferPresentationInfo: {}
-                },
-                analytics: {
-                    context: "seo-data-d46ad577-7279-477c-af7f-721ede287580"
-                },
-                cta: {
-                    link: "https://www.swiggy.com/restaurants/bakingo-new-thipasandra-indiranagar-bangalore-457308",
-                    text: "RESTAURANT_MENU",
-                    type: "WEBLINK"
-                },
-                widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
-            }
-        ];
-        setTimeout(()=>{
-            setResC(data);
-        }, "1000");
-    };
-    return {
-        resC
-    };
-};
-exports.mockGetResData = mockGetResData;
-const sampleData = exports.sampleData = "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.";
-
-  $parcel$ReactRefreshHelpers$b553.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"8dd09592340241f3":"21dqq","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["hcwwj","1xC6H","2kQhy"], "2kQhy", "parcelRequireaff4")
+},{"@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","bbc6d23085232c2d":"21dqq","9aff5c9ea7aa2f6c":"6AEwr"}]},["hcwwj","1xC6H","2kQhy"], "2kQhy", "parcelRequireaff4")
 
 //# sourceMappingURL=index.7271efb6.js.map
