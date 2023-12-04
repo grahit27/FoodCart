@@ -54,9 +54,6 @@ const Header = () => {
         <Link to="/about">
           <li>About</li>
         </Link>
-        <Link to="/about2">
-          <li>{`About (Class Based)`}</li>
-        </Link>
         <Link to="/contact">
           <li>Contact</li>
         </Link>
