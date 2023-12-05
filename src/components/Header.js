@@ -49,7 +49,7 @@ const Header = () => {
           <li>About</li>
         </Link>
         <Link to="/contact">
-          <li>Contact</li>
+          <li>Contact Us</li>
         </Link>
         <Link to="/cart">
           <li>Cart - {cartItems.length} items</li>

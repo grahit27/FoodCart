@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 const SocialMediaLinks = () => {
   return (
-    <ul className="text-lg flex items-center gap-x-5">
+    <ul className="text-lg flex justify-center items-center [&>*]:px-4 ">
       {/* Linkedin */}
       <Link to="https://www.linkedin.com/company/swiggy-in" target="_blank">
         <svg
