@@ -35,7 +35,7 @@ const AppLayout = () => {
       <Provider store={store}>
         <div className="flex flex-col h-screen">
           <Header />
-          <div className="mb-auto">
+          <div className="mt-24 mb-auto">
             <Outlet />
           </div>
 

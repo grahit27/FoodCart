@@ -5,7 +5,7 @@ import { UserContext, LocationContext } from "../utils/UserContext";
 // import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useSelector } from "react-redux";
 import DropDown from "./uiComponents/Dropdown";
-import { cityList } from "../utils/helper";
+import { AppLogo, cityList } from "../utils/helper";
 import { locationDropDown } from "../utils/helper";
 
 export const Title = () => {
@@ -14,18 +14,13 @@ export const Title = () => {
   const { location } = useContext(LocationContext);
   const cityDropItems = locationDropDown(cityList);
   return (
-    <div className="flex gap-x-2 items-center">
+    <div className="flex items-center [&>*]:p-2">
       {/* Logo */}
       <a href="/">
-        <img
-          className="w-20"
-          alt="logo"
-          data-testid="logo"
-          src="https://static.vecteezy.com/system/resources/thumbnails/005/513/590/small/catering-quality-food-design-premium-logo-vector.jpg"
-        />
+        <AppLogo />
       </a>
       {/* Online Status */}
-      <h1 className="text-3xl font-bold"> Food App </h1>
+      <h1 className="text-2xl font-bold text-orange-500">Swiggy Web Page</h1>
       {isOnline === true ? (
         <h1 className="font-semibold text-green-400">
           You are Online{" "}
@@ -34,7 +29,6 @@ export const Title = () => {
       ) : (
         <h1 className="font-semibold text-red-400">Connection Lost</h1>
       )}
-
       {/* City List */}
       <DropDown name="City List" items={cityDropItems} />
     </div>
@@ -45,9 +39,9 @@ const Header = () => {
   const { location } = useContext(LocationContext);
   const cartItems = useSelector((store) => store.cart.items);
   return (
-    <div className="px-5 py-2 flex items-center justify-between">
+    <div className="px-5 py-2 h-24 mb-5 flex items-center justify-between fixed top-0 left-0 right-0 bg-white shadow-md">
       <Title />
-      <ul className="text-lg flex items-center gap-x-5">
+      <ul className="text-lg flex items-center [&>*]:p-2">
         <Link to={`/?lat=${28.6550458}&lng=${77.1888201}`}>
           <li>Home</li>
         </Link>
