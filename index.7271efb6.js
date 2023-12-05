@@ -3009,7 +3009,7 @@ const AppLayout = ()=>{
                 children: [
                     /*#__PURE__*/ (0, _jsxRuntime.jsx)(_Header.default, {}),
                     /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
-                        className: "mb-auto",
+                        className: "mt-24 mb-auto",
                         children: /*#__PURE__*/ (0, _jsxRuntime.jsx)(_reactRouterDom.Outlet, {})
                     }),
                     /*#__PURE__*/ (0, _jsxRuntime.jsx)(_Footer.default, {})
@@ -26589,20 +26589,15 @@ const Title = ()=>{
     const { location } = (0, _react.useContext)(_UserContext.LocationContext);
     const cityDropItems = (0, _helper.locationDropDown)(_helper.cityList);
     return /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
-        className: "flex gap-x-2 items-center",
+        className: "flex items-center [&>*]:p-2",
         children: [
             /*#__PURE__*/ (0, _jsxRuntime.jsx)("a", {
                 href: "/",
-                children: /*#__PURE__*/ (0, _jsxRuntime.jsx)("img", {
-                    className: "w-20",
-                    alt: "logo",
-                    "data-testid": "logo",
-                    src: "https://static.vecteezy.com/system/resources/thumbnails/005/513/590/small/catering-quality-food-design-premium-logo-vector.jpg"
-                })
+                children: /*#__PURE__*/ (0, _jsxRuntime.jsx)(_helper.AppLogo, {})
             }),
             /*#__PURE__*/ (0, _jsxRuntime.jsx)("h1", {
-                className: "text-3xl font-bold",
-                children: " Food App "
+                className: "text-2xl font-bold text-orange-500",
+                children: "Swiggy Web Page"
             }),
             isOnline === true ? /*#__PURE__*/ (0, _jsxRuntime.jsxs)("h1", {
                 className: "font-semibold text-green-400",
@@ -26619,7 +26614,7 @@ const Title = ()=>{
                 children: "Connection Lost"
             }),
             /*#__PURE__*/ (0, _jsxRuntime.jsx)(_Dropdown.default, {
-                name: "City List",
+                name: location.city,
                 items: cityDropItems
             })
         ]
@@ -26632,11 +26627,11 @@ const Header = ()=>{
     const { location } = (0, _react.useContext)(_UserContext.LocationContext);
     const cartItems = (0, _reactRedux.useSelector)((store)=>store.cart.items);
     return /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
-        className: "px-5 py-2 flex items-center justify-between",
+        className: "px-5 py-2 h-24 mb-5 flex items-center justify-between fixed top-0 left-0 right-0 bg-white shadow-md",
         children: [
             /*#__PURE__*/ (0, _jsxRuntime.jsx)(Title, {}),
             /*#__PURE__*/ (0, _jsxRuntime.jsxs)("ul", {
-                className: "text-lg flex items-center gap-x-5",
+                className: "text-lg flex items-center [&>*]:p-2",
                 children: [
                     /*#__PURE__*/ (0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
                         to: `/?lat=${28.6550458}&lng=${77.1888201}`,
@@ -26653,7 +26648,7 @@ const Header = ()=>{
                     /*#__PURE__*/ (0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
                         to: "/contact",
                         children: /*#__PURE__*/ (0, _jsxRuntime.jsx)("li", {
-                            children: "Contact"
+                            children: "Contact Us"
                         })
                     }),
                     /*#__PURE__*/ (0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
@@ -35791,7 +35786,7 @@ _c = MenuItem;
 const DropDown = ({ name, items })=>{
     return /*#__PURE__*/ (0, _jsxRuntime.jsxs)(_react.Menu, {
         as: "div",
-        className: "relative inline-block text-left",
+        className: "p-2 relative inline-block text-left",
         children: [
             /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
                 children: /*#__PURE__*/ (0, _jsxRuntime.jsxs)(_react.Menu.Button, {
@@ -49391,7 +49386,7 @@ try {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.shimmerImage = exports.searchResults = exports.locationDropDown = exports.getRestaurantMenu = exports.cityList = exports.Rupee = void 0;
+exports.shimmerImage = exports.searchResults = exports.locationDropDown = exports.getRestaurantMenu = exports.cityList = exports.Rupee = exports.AppLogo = void 0;
 var _jsxRuntime = require("e0077fa19053ac28");
 const searchResults = (searchText, searchRes)=>{
     return searchRes.filter((restuarant)=>{
@@ -49409,6 +49404,44 @@ const Rupee = ({ price, config })=>/*#__PURE__*/ (0, _jsxRuntime.jsxs)("span", {
     });
 _c = Rupee;
 exports.Rupee = Rupee;
+const AppLogo = ()=>{
+    return /*#__PURE__*/ (0, _jsxRuntime.jsxs)("svg", {
+        class: "_8pSp-",
+        viewBox: "0 0 559 825",
+        height: "49",
+        width: "34",
+        fill: "#fc8019",
+        children: [
+            /*#__PURE__*/ (0, _jsxRuntime.jsx)("path", {
+                "fill-rule": "evenodd",
+                "clip-rule": "evenodd",
+                d: "M542.92 388.542C546.805 366.526 542.355 349.598 530.881 340.76C513.621 327.466 487.698 320.236 425.954 320.236C380.271 320.236 331.225 320.286 310.268 320.275C308.322 319.894 301.285 317.604 301.02 309.112L300.734 174.289C300.727 165.779 307.531 158.857 315.943 158.839C324.369 158.825 331.204 165.723 331.211 174.226C331.211 174.226 331.421 247.414 331.441 273.424C331.441 275.936 332.892 281.8 338.549 283.328C375.43 293.267 561.865 285.999 558.967 251.804C543.147 109.96 424.476 0 280.394 0C235.021 0 192.065 10.9162 154.026 30.2754C62.9934 77.5955 -1.65904 173.107 0.0324268 283.43C1.23215 361.622 52.2203 500.605 83.434 521.234C97.8202 530.749 116.765 527.228 201.484 527.228C239.903 527.228 275.679 527.355 293.26 527.436C295.087 527.782 304.671 530.001 304.671 538.907L304.894 641.393C304.915 649.907 298.104 656.826 289.678 656.829C281.266 656.843 274.434 649.953 274.42 641.446C274.42 641.446 275.17 600.322 275.17 584.985C275.17 581.435 275.424 575.339 265.178 570.727C231.432 555.553 121.849 564.712 115.701 581.457C113.347 587.899 125.599 612.801 144.459 644.731C170.102 685.624 211.889 747.245 245.601 792.625C261.047 813.417 268.77 823.813 280.467 824.101C292.165 824.389 300.514 814.236 317.213 793.928C383.012 713.909 516.552 537.663 542.92 388.542Z",
+                fill: "url(#paint0_linear_19447_66107)"
+            }),
+            /*#__PURE__*/ (0, _jsxRuntime.jsx)("defs", {
+                children: /*#__PURE__*/ (0, _jsxRuntime.jsxs)("linearGradient", {
+                    id: "paint0_linear_19447_66107",
+                    x1: "445.629",
+                    y1: "63.8626",
+                    x2: "160.773",
+                    y2: "537.598",
+                    gradientUnits: "userSpaceOnUse",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("stop", {
+                            "stop-color": "#FF993A"
+                        }),
+                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("stop", {
+                            offset: "1",
+                            "stop-color": "#F15700"
+                        })
+                    ]
+                })
+            })
+        ]
+    });
+};
+_c1 = AppLogo;
+exports.AppLogo = AppLogo;
 const cityList = exports.cityList = [
     {
         name: "bangalore",
@@ -49445,15 +49478,6 @@ const locationDropDown = (list)=>{
             itemHREF: `/?city=${item.name}&lat=${item.location.lat}&lng=${item.location.lng}`
         }));
 };
-// export const getAllRestaurants = async () => {
-//   const data = await fetch(
-//     "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9783692&lng=77.6408356&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-//   );
-//   const json = await data.json();
-//   const resDetails =
-//     json.data.cards[5].card.card.gridElements?.infoWithStyle?.restaurants;
-//   return resDetails;
-// };
 exports.locationDropDown = locationDropDown;
 const getRestaurantMenu = async ()=>{
     const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9783692&lng=77.6408356&restaurantId=" + resId);
@@ -49466,8 +49490,9 @@ const getRestaurantMenu = async ()=>{
     };
 };
 exports.getRestaurantMenu = getRestaurantMenu;
-var _c;
+var _c, _c1;
 $RefreshReg$(_c, "Rupee");
+$RefreshReg$(_c1, "AppLogo");
 
   $parcel$ReactRefreshHelpers$841c.postlude(module);
 } finally {
@@ -49512,38 +49537,34 @@ const Body = ()=>{
     console.log("render", resC); // Learn about how rendering works
     return !resC || resC.length === 0 ? /*#__PURE__*/ (0, _jsxRuntime.jsx)(_Shimmer.ResCardShimmer, {}) : /*#__PURE__*/ (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
         children: [
-            /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
-                className: "px-5 py-2 grid grid-cols-4 gap-4",
-                children: [
-                    /*#__PURE__*/ (0, _jsxRuntime.jsxs)("h2", {
-                        className: "text-lg font-sans font-semibold w-full",
-                        children: [
-                            " ",
-                            "Search for Restaurants and Food",
-                            " "
-                        ]
-                    }),
-                    /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
-                        className: "p-2 ring-1 ring-gray-200 hover:ring-gray-400 rounded-lg w-full",
-                        children: /*#__PURE__*/ (0, _jsxRuntime.jsx)("input", {
+            /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
+                className: "px-5 py-5 [&>*]:p-2",
+                children: /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                    className: "mx-36 h-12 flex flex-row ring-1 ring-gray-200 hover:ring-gray-400 rounded-sm ",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("input", {
                             className: "px-2 w-full outline-0",
                             type: "text",
                             value: searchText,
+                            placeholder: "Search for Restaurants and Food",
                             onChange: (e)=>{
                                 setSearchText(e.target.value); // Render page on change.
                             }
+                        }),
+                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("button", {
+                            "data-testid": "search-button",
+                            className: "p-1 w-[120px] h-8 font-semibold bg-violet-200 hover:bg-violet-400 rounded-md ",
+                            onClick: ()=>{
+                                const data = (0, _helper.searchResults)(searchText, resC);
+                                setSearchRes(data);
+                            },
+                            children: "Search"
                         })
-                    }),
-                    /*#__PURE__*/ (0, _jsxRuntime.jsx)("button", {
-                        "data-testid": "search-button",
-                        className: "p-1 w-[170px] h-10 font-semibold bg-violet-200 hover:bg-violet-400 rounded-md ",
-                        onClick: ()=>{
-                            const data = (0, _helper.searchResults)(searchText, resC);
-                            setSearchRes(data);
-                        },
-                        children: "Search"
-                    })
-                ]
+                    ]
+                })
+            }),
+            /*#__PURE__*/ (0, _jsxRuntime.jsx)("hr", {
+                class: "h-px my-4 bg-gray-300 border-0"
             }),
             /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
                 className: "flex flex-wrap",
@@ -50371,11 +50392,44 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.default = void 0;
+var _reactRouterDom = require("e137ce8f55510bd5");
+var _SocialMediaLink = _interopRequireDefault(require("97740dba17a16087"));
 var _jsxRuntime = require("558547878df7dd0");
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
 const Footer = ()=>{
-    return /*#__PURE__*/ (0, _jsxRuntime.jsx)("h3", {
-        className: "p-2 text-center text-blue-700 font-bold",
-        children: "@ 2023 Version"
+    return /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+        className: "py-6 bg-purple-600 text-white",
+        children: [
+            /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                className: "mx-32 grid grid-cols-3 justify-items-center [&>*]:p-3 [&>*]:text-lg",
+                children: [
+                    /*#__PURE__*/ (0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
+                        to: `/?lat=${28.6550458}&lng=${77.1888201}`,
+                        children: "Home"
+                    }),
+                    /*#__PURE__*/ (0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
+                        to: "/about",
+                        children: "About"
+                    }),
+                    /*#__PURE__*/ (0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
+                        to: "/contact",
+                        children: "Contact Us"
+                    })
+                ]
+            }),
+            /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
+                className: "mt-5 mb-3 ",
+                children: /*#__PURE__*/ (0, _jsxRuntime.jsx)(_SocialMediaLink.default, {})
+            }),
+            /*#__PURE__*/ (0, _jsxRuntime.jsx)("h1", {
+                className: "mt-4 text-center",
+                children: "@ 2023 Swiggy"
+            })
+        ]
     });
 };
 _c = Footer;
@@ -50388,7 +50442,79 @@ $RefreshReg$(_c, "Footer");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"558547878df7dd0":"6AEwr","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kvula":[function(require,module,exports) {
+},{"558547878df7dd0":"6AEwr","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","e137ce8f55510bd5":"9xmpe","97740dba17a16087":"3Abbv"}],"3Abbv":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$943d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$943d.prelude(module);
+
+try {
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = void 0;
+var _reactRouterDom = require("a2f9de227e5a9890");
+var _jsxRuntime = require("6bab73a34cdace1");
+const SocialMediaLinks = ()=>{
+    return /*#__PURE__*/ (0, _jsxRuntime.jsxs)("ul", {
+        className: "text-lg flex justify-center items-center [&>*]:px-4 ",
+        children: [
+            /*#__PURE__*/ (0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
+                to: "https://www.linkedin.com/company/swiggy-in",
+                target: "_blank",
+                children: /*#__PURE__*/ (0, _jsxRuntime.jsx)("svg", {
+                    viewBox: "0 0 24 24",
+                    "aria-hidden": "true",
+                    class: "h-6 w-6 flex-none fill-white transition hover:fill-purple-950",
+                    children: /*#__PURE__*/ (0, _jsxRuntime.jsx)("path", {
+                        d: "M18.335 18.339H15.67v-4.177c0-.996-.02-2.278-1.39-2.278-1.389 0-1.601 1.084-1.601 2.205v4.25h-2.666V9.75h2.56v1.17h.035c.358-.674 1.228-1.387 2.528-1.387 2.7 0 3.2 1.778 3.2 4.091v4.715zM7.003 8.575a1.546 1.546 0 01-1.548-1.549 1.548 1.548 0 111.547 1.549zm1.336 9.764H5.666V9.75H8.34v8.589zM19.67 3H4.329C3.593 3 3 3.58 3 4.297v15.406C3 20.42 3.594 21 4.328 21h15.338C20.4 21 21 20.42 21 19.703V4.297C21 3.58 20.4 3 19.666 3h.003z"
+                    })
+                })
+            }),
+            /*#__PURE__*/ (0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
+                to: "https://twitter.com/swiggy_in",
+                target: "_blank",
+                children: /*#__PURE__*/ (0, _jsxRuntime.jsx)("svg", {
+                    viewBox: "0 0 24 24",
+                    "aria-hidden": "true",
+                    class: "h-6 w-6 flex-none fill-white transition hover:fill-purple-950",
+                    children: /*#__PURE__*/ (0, _jsxRuntime.jsx)("path", {
+                        d: "M20.055 7.983c.011.174.011.347.011.523 0 5.338-3.92 11.494-11.09 11.494v-.003A10.755 10.755 0 0 1 3 18.186c.308.038.618.057.928.058a7.655 7.655 0 0 0 4.841-1.733c-1.668-.032-3.13-1.16-3.642-2.805a3.753 3.753 0 0 0 1.76-.07C5.07 13.256 3.76 11.6 3.76 9.676v-.05a3.77 3.77 0 0 0 1.77.505C3.816 8.945 3.288 6.583 4.322 4.737c1.98 2.524 4.9 4.058 8.034 4.22a4.137 4.137 0 0 1 1.128-3.86A3.807 3.807 0 0 1 19 5.274a7.657 7.657 0 0 0 2.475-.98c-.29.934-.9 1.729-1.713 2.233A7.54 7.54 0 0 0 22 5.89a8.084 8.084 0 0 1-1.945 2.093Z"
+                    })
+                })
+            }),
+            /*#__PURE__*/ (0, _jsxRuntime.jsx)(_reactRouterDom.Link, {
+                to: "https://www.instagram.com/swiggyindia/",
+                target: "_blank",
+                children: /*#__PURE__*/ (0, _jsxRuntime.jsxs)("svg", {
+                    viewBox: "0 0 24 24",
+                    "aria-hidden": "true",
+                    class: "h-6 w-6 flex-none fill-white transition hover:fill-purple-950",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("path", {
+                            d: "M12 3c-2.444 0-2.75.01-3.71.054-.959.044-1.613.196-2.185.418A4.412 4.412 0 0 0 4.51 4.511c-.5.5-.809 1.002-1.039 1.594-.222.572-.374 1.226-.418 2.184C3.01 9.25 3 9.556 3 12s.01 2.75.054 3.71c.044.959.196 1.613.418 2.185.23.592.538 1.094 1.039 1.595.5.5 1.002.808 1.594 1.038.572.222 1.226.374 2.184.418C9.25 20.99 9.556 21 12 21s2.75-.01 3.71-.054c.959-.044 1.613-.196 2.185-.419a4.412 4.412 0 0 0 1.595-1.038c.5-.5.808-1.002 1.038-1.594.222-.572.374-1.226.418-2.184.044-.96.054-1.267.054-3.711s-.01-2.75-.054-3.71c-.044-.959-.196-1.613-.419-2.185A4.412 4.412 0 0 0 19.49 4.51c-.5-.5-1.002-.809-1.594-1.039-.572-.222-1.226-.374-2.184-.418C14.75 3.01 14.444 3 12 3Zm0 1.622c2.403 0 2.688.009 3.637.052.877.04 1.354.187 1.67.31.421.163.72.358 1.036.673.315.315.51.615.673 1.035.123.317.27.794.31 1.671.043.95.052 1.234.052 3.637s-.009 2.688-.052 3.637c-.04.877-.187 1.354-.31 1.67-.163.421-.358.72-.673 1.036a2.79 2.79 0 0 1-1.035.673c-.317.123-.794.27-1.671.31-.95.043-1.234.052-3.637.052s-2.688-.009-3.637-.052c-.877-.04-1.354-.187-1.67-.31a2.789 2.789 0 0 1-1.036-.673 2.79 2.79 0 0 1-.673-1.035c-.123-.317-.27-.794-.31-1.671-.043-.95-.052-1.234-.052-3.637s.009-2.688.052-3.637c.04-.877.187-1.354.31-1.67.163-.421.358-.72.673-1.036.315-.315.615-.51 1.035-.673.317-.123.794-.27 1.671-.31.95-.043 1.234-.052 3.637-.052Z"
+                        }),
+                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("path", {
+                            d: "M12 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm0-7.622a4.622 4.622 0 1 0 0 9.244 4.622 4.622 0 0 0 0-9.244Zm5.884-.182a1.08 1.08 0 1 1-2.16 0 1.08 1.08 0 0 1 2.16 0Z"
+                        })
+                    ]
+                })
+            })
+        ]
+    });
+};
+_c = SocialMediaLinks;
+var _default = exports.default = SocialMediaLinks;
+var _c;
+$RefreshReg$(_c, "SocialMediaLinks");
+
+  $parcel$ReactRefreshHelpers$943d.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"a2f9de227e5a9890":"9xmpe","6bab73a34cdace1":"6AEwr","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kvula":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$0ba4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -50441,63 +50567,24 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.default = void 0;
-var _react = require("108112a622baa6e3");
 var _jsxRuntime = require("32edd9c29811c9d9");
-// Demo for Modal in React
-const ShowContacts = ()=>{
-    // if (!open) return null;
-    return /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
-        className: "p-2 m-2 bg-slate-400 flex flex-col",
-        children: [
-            /*#__PURE__*/ (0, _jsxRuntime.jsx)("span", {
-                children: "Contact Details"
-            }),
-            /*#__PURE__*/ (0, _jsxRuntime.jsx)("span", {
-                children: "Names"
-            }),
-            /*#__PURE__*/ (0, _jsxRuntime.jsxs)("button", {
-                className: "p-2 bg-red-600 text-white font-semibold rounded-md",
-                children: [
-                    " ",
-                    "Close Details"
-                ]
-            })
-        ]
-    });
-};
-_c = ShowContacts;
 const Contact = ()=>{
-    const [isOpen, setIsOpen] = (0, _react.useState)(false);
-    return /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
-        className: "m-2 p-2 flex gap-4 flex-col",
-        children: [
-            /*#__PURE__*/ (0, _jsxRuntime.jsx)("h1", {
-                children: "Contact Page"
-            }),
-            /*#__PURE__*/ (0, _jsxRuntime.jsx)("h2", {
-                children: "List of All contacts"
-            }),
-            /*#__PURE__*/ (0, _jsxRuntime.jsx)("button", {
-                className: "p-2 font-medium text-white bg-purple-700 rounded-md",
-                onClick: ()=>setIsOpen(true),
-                children: "See List of All Contacts"
-            }),
-            /*#__PURE__*/ (0, _jsxRuntime.jsx)(ShowContacts, {})
-        ]
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)("h1", {
+        className: "text-2xl font-semibold text-center",
+        children: "Working in Progress"
     });
 };
-_c1 = Contact;
+_c = Contact;
 var _default = exports.default = Contact;
-var _c, _c1;
-$RefreshReg$(_c, "ShowContacts");
-$RefreshReg$(_c1, "Contact");
+var _c;
+$RefreshReg$(_c, "Contact");
 
   $parcel$ReactRefreshHelpers$ee46.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"108112a622baa6e3":"21dqq","32edd9c29811c9d9":"6AEwr","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"h8J3U":[function(require,module,exports) {
+},{"32edd9c29811c9d9":"6AEwr","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"h8J3U":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ad24 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -54840,7 +54927,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.About = void 0;
 var _react = _interopRequireWildcard(require("bbc6d23085232c2d"));
+var _SocialMediaLink = _interopRequireDefault(require("e9f784419e5bf099"));
 var _jsxRuntime = require("9aff5c9ea7aa2f6c");
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
 function _getRequireWildcardCache(e) {
     if ("function" != typeof WeakMap) return null;
     var r = new WeakMap(), t = new WeakMap();
@@ -54870,7 +54963,7 @@ const About = ()=>{
     return /*#__PURE__*/ (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
         children: [
             /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
-                className: "p-2 bg-red-400 flex justify-around",
+                className: "bg-red-400 flex justify-around",
                 children: /*#__PURE__*/ (0, _jsxRuntime.jsx)("span", {
                     className: "text-2xl",
                     children: "Mocked About Us Page From Swiggy Website"
@@ -55006,6 +55099,204 @@ const About = ()=>{
                         })
                     ]
                 })
+            }),
+            /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
+                className: "items-center bg-purple-600",
+                children: /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                    className: "grid grid-cols-2 items-center",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                            className: "p-12 mb-14 text-white",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxRuntime.jsxs)("h1", {
+                                    className: "text-3xl",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("span", {
+                                            className: "font-bold",
+                                            children: "Swiggy's"
+                                        }),
+                                        " first Jamboree"
+                                    ]
+                                }),
+                                /*#__PURE__*/ (0, _jsxRuntime.jsx)("p", {
+                                    className: "mb-4 text-base",
+                                    children: "After two years of remote working at Swiggy, we had the first installment of our in-office Jamboree! It was a fun-filled week that covered - interesting knowledge sharing sessions with leaders, teams getting together in-person, and activities ranging from concerts to game sessions. Here's a glimpse into the makings of this delightful week."
+                                }),
+                                /*#__PURE__*/ (0, _jsxRuntime.jsx)("a", {
+                                    type: "button",
+                                    target: "_blank",
+                                    className: "my-[10px] mx-[1px] px-12 py-4 rounded-3xl bg-white text-red-600 text-xl",
+                                    href: "https://www.youtube.com/watch?v=JHJQ7j3_S6M",
+                                    children: "Swiggy's first Jamboree"
+                                })
+                            ]
+                        }),
+                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("img", {
+                            src: "https://careers.swiggy.com/assets/img/jamboree-2022.jpg"
+                        })
+                    ]
+                })
+            }),
+            /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
+                className: "items-center bg-orange-600",
+                children: /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                    className: "grid grid-cols-2 items-center text-right",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("img", {
+                            src: "https://careers.swiggy.com/assets/img/future-of-work.jpg"
+                        }),
+                        /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                            className: "p-12 mb-14 text-white",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxRuntime.jsxs)("h1", {
+                                    className: "text-3xl",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("span", {
+                                            className: "font-bold",
+                                            children: "Swiggster Speak: "
+                                        }),
+                                        "Experiencing Swiggy's ",
+                                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("br", {}),
+                                        " Future of Work"
+                                    ]
+                                }),
+                                /*#__PURE__*/ (0, _jsxRuntime.jsx)("p", {
+                                    className: "mb-4 text-base",
+                                    children: "From finding time to workout to spending precious moments with family and prioritising mental health — Swiggy's Remote-First way of working has been helping Swiggsters across the country. Watch this video to understand how things have been changing for them."
+                                }),
+                                /*#__PURE__*/ (0, _jsxRuntime.jsx)("a", {
+                                    type: "button",
+                                    target: "_blank",
+                                    className: "my-[10px] mx-[1px] px-12 py-4 rounded-3xl bg-white text-red-600 text-xl",
+                                    href: "https://www.youtube.com/watch?v=5gnRbRT9cTE",
+                                    children: "Remote-First Future Of Work"
+                                })
+                            ]
+                        })
+                    ]
+                })
+            }),
+            /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
+                className: "items-center bg-purple-600",
+                children: /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                    className: "grid grid-cols-2 items-center",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                            className: "p-12 mb-14 text-white",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxRuntime.jsxs)("h1", {
+                                    className: "text-3xl",
+                                    children: [
+                                        "We Are Swiggy |",
+                                        " ",
+                                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("span", {
+                                            className: "font-bold",
+                                            children: "The Inside Scoop"
+                                        })
+                                    ]
+                                }),
+                                /*#__PURE__*/ (0, _jsxRuntime.jsx)("p", {
+                                    className: "mb-4 text-base",
+                                    children: "Want to know what's buzzing at the Swiggy side of the planet? There here is what you need to follow. We Are Swiggy channels on Social Media will give you an inside-out view of the everyday serious and fun stuff within our world. All you need to do is to click your preferred channel and make sure you follow us."
+                                }),
+                                /*#__PURE__*/ (0, _jsxRuntime.jsx)(_SocialMediaLink.default, {})
+                            ]
+                        }),
+                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("img", {
+                            src: "https://careers.swiggy.com/assets/img/about_img3.jpg"
+                        })
+                    ]
+                })
+            }),
+            /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
+                className: "items-center bg-orange-600",
+                children: /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                    className: "grid grid-cols-2 items-center text-right",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("img", {
+                            src: "https://careers.swiggy.com/assets/img/Swiggy-Diaries_1.jpg"
+                        }),
+                        /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                            className: "p-12 mb-14 text-white",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxRuntime.jsxs)("h1", {
+                                    className: "text-3xl",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("span", {
+                                            className: "font-bold",
+                                            children: "What's Buzzing at "
+                                        }),
+                                        "Swiggy"
+                                    ]
+                                }),
+                                /*#__PURE__*/ (0, _jsxRuntime.jsx)("p", {
+                                    className: "mb-4 text-base",
+                                    children: "From food guides to the culture inside, we are sure you are curious to learn more about what's happening inside and around the Swiggy world. Well, if that's the case, you have landed at the right spot. Swiggy Diaries is a journal of everything you need to know about our side of the planet. So dive in and get on with it."
+                                }),
+                                /*#__PURE__*/ (0, _jsxRuntime.jsx)("a", {
+                                    type: "button",
+                                    target: "_blank",
+                                    className: "my-[10px] mx-[1px] px-12 py-4 rounded-3xl bg-white text-red-600 text-xl",
+                                    href: "https://blog.swiggy.com/",
+                                    children: "Turn the Page"
+                                })
+                            ]
+                        })
+                    ]
+                })
+            }),
+            /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
+                className: "py-[70px] mx-24",
+                children: /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                    className: "grid grid-cols-2 mb-12 -ms-4 -me-4 items-center ",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
+                            className: "px-4 ",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxRuntime.jsxs)("h1", {
+                                    className: "mt-8 mb-4 text-3xl tracking-[8px]",
+                                    children: [
+                                        "Get In ",
+                                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("span", {
+                                            className: "font-bold",
+                                            children: "Touch"
+                                        })
+                                    ]
+                                }),
+                                /*#__PURE__*/ (0, _jsxRuntime.jsx)("h1", {
+                                    className: "text-orange-600 text-4xl mb-7",
+                                    children: "Head Office"
+                                }),
+                                /*#__PURE__*/ (0, _jsxRuntime.jsxs)("p", {
+                                    className: "mb-4 text-base",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("span", {
+                                            className: "font-bold",
+                                            children: "Bundl Technologies Pvt. Ltd."
+                                        }),
+                                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("br", {}),
+                                        "No. 55 Sy No 8 to 14 I & J Block - Ground Floor, Embassy Tech Village |",
+                                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("br", {}),
+                                        "Outer Ring Road, Devarbisanahalli, Varthur Bengaluru - 560130"
+                                    ]
+                                })
+                            ]
+                        }),
+                        /*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
+                            children: /*#__PURE__*/ (0, _jsxRuntime.jsx)("iframe", {
+                                "_ngcontent-cwr-c55": "",
+                                src: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15554.478052870141!2d77.6903534!3d12.9321588!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x441b54d2e7912e06!2sEmbassy%20TechVillage!5e0!3m2!1sen!2sin!4v1608122793152!5m2!1sen!2sin",
+                                width: "100%",
+                                height: "600",
+                                frameBorder: "0",
+                                allowFullScreen: "",
+                                "aria-hidden": "false",
+                                tabIndex: "0",
+                                className: "rounded-full"
+                            })
+                        })
+                    ]
+                })
             })
         ]
     });
@@ -55020,6 +55311,6 @@ $RefreshReg$(_c, "About");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","bbc6d23085232c2d":"21dqq","9aff5c9ea7aa2f6c":"6AEwr"}]},["hcwwj","1xC6H","2kQhy"], "2kQhy", "parcelRequireaff4")
+},{"@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","bbc6d23085232c2d":"21dqq","9aff5c9ea7aa2f6c":"6AEwr","e9f784419e5bf099":"3Abbv"}]},["hcwwj","1xC6H","2kQhy"], "2kQhy", "parcelRequireaff4")
 
 //# sourceMappingURL=index.7271efb6.js.map
