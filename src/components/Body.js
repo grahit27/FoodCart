@@ -20,32 +20,30 @@ const Body = () => {
     <ResCardShimmer />
   ) : (
     <>
-      <div className="px-5 py-2 grid grid-cols-4 gap-4">
-        <h2 className="text-lg font-sans font-semibold w-full">
-          {" "}
-          Search for Restaurants and Food{" "}
-        </h2>
-        <div className="p-2 ring-1 ring-gray-200 hover:ring-gray-400 rounded-lg w-full">
+      <div className="px-5 py-5 [&>*]:p-2">
+        <div className="mx-36 h-12 flex flex-row ring-1 ring-gray-200 hover:ring-gray-400 rounded-sm ">
           <input
             className="px-2 w-full outline-0"
             type="text"
             value={searchText}
+            placeholder="Search for Restaurants and Food"
             onChange={(e) => {
               setSearchText(e.target.value); // Render page on change.
             }}
           />
+          <button
+            data-testid="search-button"
+            className="p-1 w-[120px] h-8 font-semibold bg-violet-200 hover:bg-violet-400 rounded-md "
+            onClick={() => {
+              const data = searchResults(searchText, resC);
+              setSearchRes(data);
+            }}
+          >
+            Search
+          </button>
         </div>
-        <button
-          data-testid="search-button"
-          className="p-1 w-[170px] h-10 font-semibold bg-violet-200 hover:bg-violet-400 rounded-md "
-          onClick={() => {
-            const data = searchResults(searchText, resC);
-            setSearchRes(data);
-          }}
-        >
-          Search
-        </button>
       </div>
+      <hr class="h-px my-4 bg-gray-300 border-0" />
       {/* RestaurantCard details */}
       <div className="flex flex-wrap" data-testid="resDetails">
         {!searchRes || searchRes.length === 0 ? (
