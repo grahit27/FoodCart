@@ -26616,6 +26616,10 @@ const Title = ()=>{
             /*#__PURE__*/ (0, _jsxRuntime.jsx)(_Dropdown.default, {
                 name: location.city,
                 items: cityDropItems
+            }),
+            /*#__PURE__*/ (0, _jsxRuntime.jsx)("h1", {
+                className: "font-semibold text-blue-400",
+                children: "Enable CORS Extension to see Results"
             })
         ]
     });
@@ -33034,8 +33038,8 @@ const query = window.location.search;
 const urlParms = new _reactRouterDom.createSearchParams(query);
 const UserContext = exports.UserContext = /*#__PURE__*/ (0, _react.createContext)({
     user: {
-        name: "Tester",
-        email: "tester@123.com"
+        name: "User",
+        email: "user@123.com"
     }
 });
 const LocationContext = exports.LocationContext = /*#__PURE__*/ (0, _react.createContext)({
@@ -50366,7 +50370,7 @@ const getAllRestaurants = ()=>{
     const getAllResData = async ()=>{
         const data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${location.lat}&lng=${location.lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`);
         const json = await data.json();
-        const resDetails = json.data?.cards[5].card.card.gridElements?.infoWithStyle?.restaurants;
+        const resDetails = json.data?.cards[1].card.card.gridElements?.infoWithStyle?.restaurants;
         setResC(resDetails);
     };
     return {
