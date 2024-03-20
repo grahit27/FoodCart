@@ -33,7 +33,7 @@ export const Title = () => {
       <DropDown name={location.city} items={cityDropItems} />
       {/* Message for CORS Extension */}
       <h1 className="font-semibold text-blue-400">
-        Enable CORS Extension to see Results
+        Enable CORS Extension and change city name to see the results
       </h1>
     </div>
   );
