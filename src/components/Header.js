@@ -31,6 +31,10 @@ export const Title = () => {
       )}
       {/* City List */}
       <DropDown name={location.city} items={cityDropItems} />
+      {/* Message for CORS Extension */}
+      <h1 className="font-semibold text-blue-400">
+        Enable CORS Extension to see Results
+      </h1>
     </div>
   );
 };

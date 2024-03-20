@@ -4,8 +4,8 @@ const query = window.location.search;
 const urlParms = new createSearchParams(query);
 export const UserContext = createContext({
   user: {
-    name: "Tester",
-    email: "tester@123.com",
+    name: "User",
+    email: "user@123.com",
   },
 });
 

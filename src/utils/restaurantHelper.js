@@ -24,7 +24,7 @@ export const getAllRestaurants = () => {
     );
     const json = await data.json();
     const resDetails =
-      json.data?.cards[5].card.card.gridElements?.infoWithStyle?.restaurants;
+      json.data?.cards[1].card.card.gridElements?.infoWithStyle?.restaurants;
     setResC(resDetails);
   };
   return { resC };
